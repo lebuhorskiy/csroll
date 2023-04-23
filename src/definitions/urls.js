@@ -1,0 +1,1 @@
+export const LOGIN_URL = 'https://csroll.nosorog.team/api/auth/steam'

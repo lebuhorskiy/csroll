@@ -1,0 +1,20 @@
+.modal__body {
+  background: #232C4B;
+  border-radius: 16px;
+  position: relative;
+  .close {
+    position: absolute;
+    right: 24px;
+    height: 24px;
+    top: 20px;
+    display: flex;
+    align-items: flex-start;
+    padding: 4px;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
