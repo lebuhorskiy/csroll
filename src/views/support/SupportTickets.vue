@@ -552,6 +552,9 @@ import SupportHeader from "@/components/support/SupportHeader.vue";
 <style scoped lang="scss">
 .support-tickets {
   height: 100vh;
+  @media (min-width: 1200px) {
+    min-height: 900px;
+  }
   display: flex;
   flex-direction: column;
   overflow: hidden;

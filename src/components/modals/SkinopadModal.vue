@@ -1,5 +1,5 @@
 <template>
-  <div class="modal__body">
+  <div class="modal__body" ref="body">
     <div @click="setSkinopadModal(false)" class="close">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M12 4L4 12M4 4L12 12" stroke="#455489" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -191,9 +191,14 @@
 <script>
 import CircleProgress from "@/components/UI/CircleProgress.vue";
 import {mapMutations} from "vuex";
+import closeModal from "@/mixins/closeModal";
 
 export default {
+  mixins: [closeModal],
   methods: {
+    close () {
+      this.setSkinopadModal(false)
+    },
     ...mapMutations({
       setSkinopadModal: 'config/setSkinopadModal'
     })

@@ -51,17 +51,35 @@
     background: rgba(69, 84, 137, 0.1);
     border-radius: 16px;
   }
+  @media (max-width: 1300px) {
+    flex-wrap: wrap;
+  }
   .statistics-indicators {
     margin-right: 12px;
     padding: 22px 32px;
     flex: 1.2;
     display: flex;
     align-items: center;
+    @media (max-width: 1300px) {
+      margin-right: 0;
+    }
+    @media (max-width: 600px) {
+      padding: 16px;
+    }
     .statistics-indicator {
       display: flex;
       align-items: center;
+      @media (max-width: 600px) {
+        svg {
+          width: 25px;
+        }
+      }
       .statistics-indicator_info {
         margin-left: 12px;
+        @media (max-width: 600px) {
+          margin-left: 10px;
+
+        }
         strong,span {
           display: block;
           width: 100%;
@@ -70,17 +88,25 @@
           font-weight: 700;
           font-size: 18px;
           line-height: 27px;
+          @media (max-width: 600px) {
+            font-size: 16px;
+            line-height: 20px;
+          }
         }
         span {
           font-weight: 600;
           font-size: 12px;
           line-height: 18px;
           color: #455489
+
         }
       }
     }
     .statistics-indicator + .statistics-indicator {
       margin-left: 50px;
+      @media (max-width: 600px) {
+        margin-left: 20px;
+      }
     }
     .history {
       margin-left: auto;
@@ -99,16 +125,37 @@
     display: flex;
     align-items: center;
     padding: 19px 32px;
+    @media (max-width: 1300px) {
+      width: 100%;
+      flex: unset;
+      margin-top: 16px;
+    }
+    @media (max-width: 1650px) {
+      padding: 16px;
+    }
+    @media (max-width: 600px) {
+      flex-wrap: wrap;
+    }
     .statistics-last_title {
       font-weight: 600;
       font-size: 17px;
       margin-right: 24px;
       white-space: nowrap;
       line-height: 28px;
+      @media (max-width: 1650px) {
+        font-size: 15px;
+      }
+      @media (max-width: 600px) {
+        width: 100%;
+      }
     }
     .statistics-counts {
       display: flex;
       margin-left: auto;
+      @media (max-width: 600px) {
+        width: 100%;
+        margin-top: 16px;
+      }
       .statistics-count {
         font-weight: 700;
         font-size: 18px;
@@ -121,6 +168,14 @@
         min-width: 80px;
         background: rgba(69, 84, 137, 0.1);
         border-radius: 8px;
+        @media (max-width: 1650px) {
+          width: 55px;
+          min-width: 55px;
+          font-size: 16px;
+        }
+        @media (max-width: 600px) {
+          flex: 1;
+        }
         &.purple {
           color: #4E70E9;
         }

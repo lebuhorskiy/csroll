@@ -276,6 +276,9 @@
     flex-grow: 1;
     overflow-y: auto;
     padding-right: 10px;
+    @media (max-width: 1024px) {
+      padding-right: 0;
+    }
     &::-webkit-scrollbar {
       width: 8px;
       background: rgba(69, 84, 137, 0.1);

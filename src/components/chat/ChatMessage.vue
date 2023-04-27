@@ -31,6 +31,62 @@
         <div class="level" :class="[message.color]">
           4
         </div>
+
+        <div class="actions" @click.prevent.stop>
+           <button>
+             <VMenu :triggers="['click']">
+               <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <g opacity="0.5">
+                   <path d="M3.80001 4.30001L12.2 12.7M14 8.5C14 11.8137 11.3137 14.5 8 14.5C4.68629 14.5 2 11.8137 2 8.5C2 5.18629 4.68629 2.5 8 2.5C11.3137 2.5 14 5.18629 14 8.5Z" stroke="#FF5C30" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                 </g>
+               </svg>
+               <template #popper>
+                 <PopoverContent>
+                   <button class="action-button">10 мин</button><br>
+                   <button class="action-button">30 мин</button><br>
+                   <button class="action-button">1 час</button>
+                 </PopoverContent>
+               </template>
+             </VMenu>
+
+           </button>
+          <button>
+
+
+            <VMenu :triggers="['click']">
+              <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.6665 5.16667H13.3332M6.6665 7.83333V11.8333M9.33317 7.83333V11.8333M3.33317 5.16667L3.99984 13.1667C3.99984 13.5203 4.14031 13.8594 4.39036 14.1095C4.64041 14.3595 4.97955 14.5 5.33317 14.5H10.6665C11.0201 14.5 11.3593 14.3595 11.6093 14.1095C11.8594 13.8594 11.9998 13.5203 11.9998 13.1667L12.6665 5.16667M5.99984 5.16667V3.16667C5.99984 2.98986 6.07008 2.82029 6.1951 2.69526C6.32012 2.57024 6.48969 2.5 6.6665 2.5H9.33317C9.50998 2.5 9.67955 2.57024 9.80457 2.69526C9.9296 2.82029 9.99984 2.98986 9.99984 3.16667V5.16667" stroke="#FF5C30" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <template #popper>
+                <PopoverContent>
+                  <button class="action-button">Это сообщение</button><br>
+                  <button class="action-button">Все сообщения</button>
+                </PopoverContent>
+              </template>
+            </VMenu>
+          </button>
+
+
+
+          <button>
+            <VMenu :triggers="['click']">
+              <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g opacity="0.5">
+                  <path d="M10 3.49996L7.33333 6.16663L4.66667 7.16663L3.66667 8.16663L8.33333 12.8333L9.33333 11.8333L10.3333 9.16663L13 6.49996M6 10.5L3 13.5M9.66667 3.16663L13.3333 6.83329" stroke="#97A7DB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+              </svg>
+              <template #popper>
+                <PopoverContent>
+                  <button class="action-button">Закрепить</button>
+                </PopoverContent>
+              </template>
+            </VMenu>
+
+          </button>
+
+
+        </div>
+
       </router-link>
       <div class="indicators" v-if="message.showIndicators">
         <div class="indicator">
@@ -76,7 +132,10 @@
   </div>
 </template>
 <script>
+import PopoverContent from "@/components/UI/PopoverContent.vue";
+
 export default {
+  components: {PopoverContent},
   props: {
     message: {
       type: Object,
@@ -108,7 +167,7 @@ export default {
       right: 0;
       top: 1px;
       font-weight: 600;
-      font-size: 14px;
+      font-size: 12px;
       line-height: 21px;
       color: #576CB0;
       position: absolute;
@@ -143,7 +202,7 @@ export default {
       }
       span {
         font-weight: 700;
-        font-size: 14px;
+        font-size: 12px;
         line-height: 20px;
       }
       .role {
@@ -179,6 +238,29 @@ export default {
         &.orange {
           background: linear-gradient(45deg, rgba(160, 52, 52, 0.1) 0%, rgba(255, 152, 94, 0.1) 100%);
           border: 2px solid rgba(255, 152, 94, 1);
+        }
+      }
+      .actions {
+        display: flex;
+        align-items: center;
+        padding-top: 1px;
+        margin-left: 16px;
+        button {
+          padding: 2px;
+          display: flex;
+          align-items: center;
+          background: transparent;
+          cursor: pointer;
+          transition: 0.2s;
+          &:hover {
+            opacity: 0.8;
+          }
+          &:focus-within {
+            opacity: 0.5;
+          }
+        }
+        button + button {
+          margin-left: 6px;
         }
       }
       &.purple {
@@ -257,7 +339,7 @@ export default {
       margin-top: 8px;
       width: 100%;
       font-weight: 500;
-      font-size: 14px;
+      font-size: 12px;
       line-height: 21px;
       color: #97A7DB;
       text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

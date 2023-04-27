@@ -46,6 +46,7 @@ const defaultOptions = {
   // note: don't override httpLink here, specify httpLink options in the
   // httpLinkOptions property of defaultOptions.
   // link: myLink
+
   link: authLink,
 
   // Override default cache

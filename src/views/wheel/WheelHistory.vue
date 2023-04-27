@@ -76,6 +76,10 @@ import WheelBet from "@/components/games/wheel/WheelBet.vue";
     display: flex;
     margin-top: 24px;
     overflow: hidden;
+    @media (max-width: 992px) {
+      flex-wrap: wrap;
+
+    }
     .indicator {
       display: flex;
       align-items: center;
@@ -84,6 +88,17 @@ import WheelBet from "@/components/games/wheel/WheelBet.vue";
       width: 230px;
       min-width: 230px;
       padding: 0 24px;
+      @media (max-width: 992px) {
+        padding: 24px 24px;
+        width: calc(50% - 6px);
+        min-width: unset;
+      }
+      @media (max-width: 600px) {
+        width: calc(50% - 8px);
+      }
+      @media (max-width: 450px) {
+        width: 100%;
+      }
       .icon {
         display: flex;
         align-self: center;
@@ -108,6 +123,10 @@ import WheelBet from "@/components/games/wheel/WheelBet.vue";
     }
     .indicator + .indicator {
       margin-left: 12px;
+      @media (max-width: 450px) {
+        margin-left: 0;
+        margin-top: 16px;
+      }
     }
     .big-indicator {
       flex-grow: 1;
@@ -139,6 +158,27 @@ import WheelBet from "@/components/games/wheel/WheelBet.vue";
       .indicator-span + .indicator-span {
         margin-left: 24px;
       }
+      @media (max-width: 992px) {
+        width: 100%;
+        flex-grow: unset;
+        margin-left: 0;
+        margin-top: 16px;
+      }
+      @media (max-width: 600px) {
+        flex-wrap: wrap;
+        padding: 16px;
+        .icon {
+          width: 100%;
+          justify-content: center;
+          display: flex;
+          margin-bottom: 16px;
+        }
+        .indicator-span {
+          width: calc(50% - 14px);
+          font-size: 14px;
+          white-space: nowrap;
+        }
+      }
     }
   }
   .bets {
@@ -146,6 +186,15 @@ import WheelBet from "@/components/games/wheel/WheelBet.vue";
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 11px;
+    @media (max-width: 600px) {
+      margin-top: 16px;
+    }
+    @media (max-width: 1200px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 600px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 }
 </style>

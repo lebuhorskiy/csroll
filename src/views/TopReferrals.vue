@@ -416,6 +416,14 @@ export default {
     grid-gap: 45px;
     margin-top: 32px;
     position: relative;
+    @media (max-width: 1400px) {
+      grid-gap: 16px;
+    }
+    @media (max-width: 1200px) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
     .player {
       overflow: hidden;
       padding: 32px 0;
@@ -425,16 +433,26 @@ export default {
       background: rgba(69, 84, 137, 0.1);
       border-radius: 16px;
       position: relative;
-
+      @media (max-width: 600px) {
+        padding: 25px 0;
+        padding-top: 40px;
+      }
       .user {
         padding: 0 28px;
         border-right: 1px solid rgba(87, 108, 176, 0.1);
+        @media (max-width: 600px) {
+          padding: 0 16px;
+        }
         .user-avatar {
           width: 100px;
           height: 100px;
           border-radius: 100%;
           margin: 0 auto;
           position: relative;
+          @media (max-width: 600px) {
+            width: 80px;
+            height: 80px;
+          }
           &::after {
             content: "";
             display: block;
@@ -444,6 +462,10 @@ export default {
             left: -22px;
             width: 140px;
             height: 140px;
+            @media (max-width: 600px) {
+              width: 120px;
+              height: 120px;
+            }
             background: url(@/assets/images/1st.png);
             background-size: 100% 100%;
           }
@@ -464,6 +486,9 @@ export default {
           font-weight: 700;
           font-size: 16px;
           line-height: 100%;
+          @media (max-width: 600px) {
+            font-size: 14px;
+          }
         }
         .user-invited {
           background: rgba(69, 84, 137, 0.1);
@@ -472,6 +497,9 @@ export default {
           padding: 8px 0;
           width: 80%;
           margin: 0 auto;
+          @media (max-width: 768px) {
+            width: 100%;
+          }
           strong,span {
             width: 100%;
             display: block;
@@ -481,6 +509,10 @@ export default {
             font-weight: 700;
             font-size: 24px;
             line-height: 36px;
+            @media (max-width: 600px) {
+              font-size: 18px;
+              line-height: 24px;
+            }
           }
           span {
             font-weight: 600;
@@ -501,7 +533,15 @@ export default {
         opacity: 0.3;
         filter: blur(50px);
       }
-
+      @media (max-width: 1200px) {
+        width: calc(50% - 8px);
+        &:first-child {
+          width: 100%;
+        }
+      }
+      @media (max-width: 768px) {
+        width: 100%;
+      }
       &.first {
         .user {
           .user-avatar {
@@ -518,6 +558,7 @@ export default {
             box-shadow: 0px 0px 30px 10px rgba(220, 220, 220, 0.4);
             &::after {
               background: url(@/assets/images/2nd.png);
+              background-size: 100% 100%;
             }
           }
         }
@@ -529,6 +570,7 @@ export default {
             box-shadow: 0px 0px 30px 10px rgba(236, 136, 80, 0.4);
             &::after {
               background: url(@/assets/images/3rd.png);
+              background-size: 100% 100%;
             }
           }
         }
@@ -543,6 +585,10 @@ export default {
            display: flex;
            align-items: center;
            justify-content: center;
+           @media (max-width: 600px) {
+             width: 100px;
+             height: 60px;
+           }
            img {
              max-height: 100%;
              max-width: 100%;
@@ -557,6 +603,9 @@ export default {
            color: #576CB0;
            width: 100%;
            text-align: center;
+           @media (max-width: 600px) {
+             margin-top: 18px;
+           }
          }
          .skin-name {
            margin-bottom: 8px;
@@ -569,12 +618,18 @@ export default {
              font-weight: 600;
              font-size: 14px;
              line-height: 21px;
+             @media (max-width: 600px) {
+               font-size: 12px;
+             }
            }
            span {
              font-weight: 600;
              font-size: 14px;
              line-height: 21px;
-             color: rgba(87, 108, 176, 1)
+             color: rgba(87, 108, 176, 1);
+             @media (max-width: 600px) {
+               font-size: 12px;
+             }
            }
          }
          .skin-cost {
@@ -584,6 +639,9 @@ export default {
            display: block;
            text-align: center;
            color: #EAC159;
+           @media (max-width: 600px) {
+             font-size: 18px;
+           }
          }
        }
      }
@@ -593,17 +651,32 @@ export default {
     margin-top: 32px;
     display: flex;
     overflow: hidden;
+    @media (max-width: 992px) {
+      margin-top: 16px;
+    }
+    @media (max-width: 992px) {
+      flex-wrap: wrap;
+    }
     .table {
       flex-grow: 1;
       margin-right: 12px;
+      @media (max-width: 992px) {
+        margin-right: 0;
+      }
       .place {
         width: 15%;
       }
       .referral {
         width: 32%;
+        @media (max-width: 1200px) {
+          width: 45%;
+        }
       }
       .prize {
         width: 38%;
+        @media (max-width: 1200px) {
+          width: 25%;
+        }
       }
       .bank {
         text-align: right;
@@ -625,6 +698,30 @@ export default {
           line-height: 100%;
           color: #576CB0;
         }
+        @media (max-width: 600px) {
+          padding-right: 16px;
+          .coef {
+            margin-right: 0;
+            justify-content: flex-end;
+            display: flex;
+            text-align: right;
+            white-space: nowrap;
+          }
+          .referral {
+            margin-left: 16px;
+          }
+          .prize {
+            width: 50%;
+            text-align: center;
+          }
+          .bank {
+            width: 50%;
+          }
+          & > div {
+            font-size: 10px;
+          }
+          padding-bottom: 10px;
+        }
       }
       .table-items {
         .table-item {
@@ -640,6 +737,10 @@ export default {
             font-size: 14px;
             line-height: 100%;
             color: #576CB0;
+            @media (max-width: 600px) {
+              min-width: 36px;
+              white-space: nowrap;
+            }
           }
           .referral {
             .user {
@@ -653,9 +754,16 @@ export default {
               }
               .nickname {
                 font-weight: 600;
+                white-space: nowrap;
                 font-size: 14px;
                 line-height: 100%;
+                @media (max-width: 600px) {
+                  display: none;
+                }
               }
+            }
+            @media (max-width: 600px) {
+              justify-content: flex-start;
             }
           }
           .prize {
@@ -742,6 +850,28 @@ export default {
             line-height: 100%;
             color: #EAC159
           }
+
+          @media (max-width: 600px) {
+            padding: 9px 16px;
+            .coef {
+              margin-right: 0;
+              justify-content: flex-end;
+              display: flex;
+            }
+            .prize {
+              width: 50%;
+              margin-top: 10px;
+            }
+            .referral {
+              width: 70%;
+              display: flex;
+              margin-left: 16px;
+            }
+            .bank {
+              margin-top: 10px;
+              width: 50%;
+            }
+          }
         }
         .table-item + .table-item {
           margin-top: 12px;
@@ -752,6 +882,12 @@ export default {
       padding-top: 35px;
       width: 31.4%;
       min-width: 31.4%;
+
+      @media (max-width: 992px) {
+        width: 100%;
+        padding-top: 16px;
+        min-width: 100%;
+      }
       .question + .question {
         margin-top: 12px;
       }

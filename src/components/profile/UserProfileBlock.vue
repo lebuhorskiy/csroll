@@ -1,32 +1,42 @@
 <template>
   <div class="user-profile-block">
-    <div class="logout">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M14 8V6C14 5.46957 13.7893 4.96086 13.4142 4.58579C13.0391 4.21071 12.5304 4 12 4H5C4.46957 4 3.96086 4.21071 3.58579 4.58579C3.21071 4.96086 3 5.46957 3 6V18C3 18.5304 3.21071 19.0391 3.58579 19.4142C3.96086 19.7893 4.46957 20 5 20H12C12.5304 20 13.0391 19.7893 13.4142 19.4142C13.7893 19.0391 14 18.5304 14 18V16M7 12H21M21 12L18 9M21 12L18 15" stroke="#576CB0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
+
      <div class="avatar">
-       <img src="@/assets/images/av1.png" alt="">
-       <div class="lvl">5 LVL</div>
+       <img :src="`https://avatars.akamai.steamstatic.com/${$root.user.steamPhoto}_full.jpg`" alt="">
+<!--       <div class="lvl">{{ $root.user.level }} LVL</div>-->
+       <UiLvl :text="$root.user.level + ' LVL'" />
      </div>
-    <div class="nickname">osvaldxx</div>
+    <div class="nickname">{{ $root.user.nickname }}</div>
 
     <div class="progress">
       <div class="between">
-        <div class="from">5 LVL</div>
-        <div class="to">6 LVL</div>
+        <div class="from">{{ $root.user.level }} LVL</div>
+        <div class="to">{{ $root.user.level + 1 }} LVL</div>
       </div>
       <div class="progress-line">
         <div class="progress-line_fill"></div>
       </div>
 
       <div class="progress-indicators">
-        $ 1 000   <em>/</em>   $ 2 000
+        {{ $root.currency.symbol }} 1 000   <em>/</em>   {{ $root.currency.symbol }} 2 000
       </div>
     </div>
 
   </div>
 </template>
+<script>
+import {mapActions} from "vuex";
+import UiLvl from "@/components/UI/UiLvl.vue";
+
+export default {
+  components: {UiLvl},
+  methods: {
+    ...mapActions({
+      logOut: 'user/logOut'
+    })
+  }
+}
+</script>
 <style scoped lang="scss">
 .user-profile-block {
   width: 280px;
@@ -36,6 +46,13 @@
   padding: 24px 32px;
   padding-top: 32px;
   position: relative;
+  @media (max-width: 1600px) {
+    width: 260px;
+    min-width: 260px;
+  }
+  @media (max-width: 600px) {
+    padding: 16px;
+  }
   .logout {
     position: absolute;
     right: 24px;
@@ -57,6 +74,12 @@
       width: 100%;
       height: 100%;
       border-radius: 100%;
+    }
+    .ui-lvl {
+      position: absolute;
+      bottom: -5px;
+      width: 79px;
+      left: calc(50% - 39.5px);
     }
     .lvl {
       position: absolute;

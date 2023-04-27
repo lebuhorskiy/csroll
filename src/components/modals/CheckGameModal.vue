@@ -1,5 +1,5 @@
 <template>
-  <div class="modal__body">
+  <div class="modal__body" ref="body">
     <div @click="setShowCheckGameModal(false)" class="close">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M12 4L4 12M4 4L12 12" stroke="#455489" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -11,49 +11,58 @@
       </svg>
       Проверка честной игры
     </div>
-    <div class="text">
-      <span>Данные раунда</span>
-      <p>
-        <em>Crash:</em> 1.35
-      </p>
-      <p>
-        <em>Hash:</em> 42314f848a5a9f1c05e1ba711e5bb621c198be2dc8a4ba65f4ac3ad9e9a2849b
-      </p>
-      <p>
-        <em>Salt:</em> c295e6543ea4d7f1cfe1055ac1128290
-      </p>
-      <br>
-      <span>Как проверить?</span>
-      <p class="cr">
-        Хэш раунда генерируется по формуле sha256(Crash + Соль)<br>
-        Для этой игры <span>1.35+c295e6543ea4d7f1cfe1055ac112829</span><br>
-        Вы можете подставить данные и проверить хэш на сайте<br>
-        генераторе <em>sha256</em>
-      </p>
-      <br>
-      <span class="small">Пояснение:</span>
-      <p class="small">
-        Перед началом каждой игры случайным образом генерируются соль (32 случайных
-        символа) и число, на котором закончится игра. Они складываются между собой
-        и хешируются с помощью sha256, после чего этот хэш отображается до того
-        как начнется игра. В конце игры можно увидеть соль, с помощью которой была
-        произведена генерация, и убедиться, что хэш не менялся и все совпадает.
-      </p>
+
+    <div class="modal-content">
+      <div class="text">
+        <span>Данные раунда</span>
+        <p>
+          <em>Crash:</em> 1.35
+        </p>
+        <p>
+          <em>Hash:</em> 42314f848a5a9f1c05e1ba711e5bb621c198be2dc8a4ba65f4ac3ad9e9a2849b
+        </p>
+        <p>
+          <em>Salt:</em> c295e6543ea4d7f1cfe1055ac1128290
+        </p>
+        <br>
+        <span>Как проверить?</span>
+        <p class="cr">
+          Хэш раунда генерируется по формуле sha256(Crash + Соль)<br>
+          Для этой игры <span>1.35+c295e6543ea4d7f1cfe1055ac112829</span><br>
+          Вы можете подставить данные и проверить хэш на сайте<br>
+          генераторе <em>sha256</em>
+        </p>
+        <br>
+        <span class="small">Пояснение:</span>
+        <p class="small">
+          Перед началом каждой игры случайным образом генерируются соль (32 случайных
+          символа) и число, на котором закончится игра. Они складываются между собой
+          и хешируются с помощью sha256, после чего этот хэш отображается до того
+          как начнется игра. В конце игры можно увидеть соль, с помощью которой была
+          произведена генерация, и убедиться, что хэш не менялся и все совпадает.
+        </p>
 
 
-      <strong>
-        Это все означает, что мы никак не можем повлиять на исход
-        игры заранее или во время самой игры.
-      </strong>
+        <strong>
+          Это все означает, что мы никак не можем повлиять на исход
+          игры заранее или во время самой игры.
+        </strong>
+      </div>
+
     </div>
 
   </div>
 </template>
 <script>
 import {mapMutations} from "vuex";
+import closeModal from "@/mixins/closeModal";
 
 export default {
+  mixins: [closeModal],
   methods: {
+    close () {
+      this.setShowCheckGameModal(false)
+    },
     ...mapMutations({
       setShowCheckGameModal: 'config/setShowCheckGameModal'
     })
@@ -74,15 +83,27 @@ export default {
     font-weight: 600;
     font-size: 20px;
     line-height: 24px;
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
   }
   .text {
     margin-top: 32px;
+    @media (max-width: 768px) {
+      margin-top: 5px;
+    }
     & > span {
       font-weight: 600;
       font-size: 14px;
       line-height: 21px;
       color: #576CB0;
       &.small {
+        font-size: 12px;
+        @media (max-width: 768px) {
+          font-size: 10px;
+        }
+      }
+      @media (max-width: 768px) {
         font-size: 12px;
       }
     }
@@ -93,6 +114,9 @@ export default {
         font-size: 14px;
         line-height: 21px;
         word-break: break-word;
+        @media (max-width: 768px) {
+          font-size: 12px;
+        }
         em {
           font-style: normal;
           color: rgba(234, 193, 89, 1);
@@ -100,6 +124,9 @@ export default {
           line-height: 21px;
           font-weight: 600;
           white-space: nowrap;
+          @media (max-width: 768px) {
+            font-size: 12px;
+          }
         }
       }
     .cr {
@@ -107,21 +134,34 @@ export default {
       width: 100%;
       font-size: 14px;
       line-height: 21px;
+      @media (max-width: 768px) {
+        font-size: 12px;
+      }
       span {
         color: rgba(151, 167, 219, 1);
         font-size: 14px;
         line-height: 21px;
+        @media (max-width: 768px) {
+          font-size: 12px;
+        }
       }
       em {
         color: rgba(78, 112, 233, 1);
         font-style: normal;
         font-size: 14px;
         line-height: 21px;
+        @media (max-width: 768px) {
+          font-size: 12px;
+        }
       }
     }
     p.small {
       font-size: 12px;
       line-height: 18px;
+      @media (max-width: 768px) {
+        font-size: 10px;
+        line-height: 16px;
+      }
     }
     strong {
       display: block;
@@ -129,6 +169,10 @@ export default {
       line-height: 23px;
       color: rgba(234, 193, 89, 1);
       font-size: 14px;
+      @media (max-width: 768px) {
+        font-size: 12px;
+        line-height: 16px;
+      }
     }
   }
 }

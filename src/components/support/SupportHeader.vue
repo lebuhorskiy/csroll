@@ -35,6 +35,13 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    .actions {
+      width: 100%;
+    }
+
+  }
   h2 {
     display: flex;
     align-items: center;
@@ -44,6 +51,9 @@ export default {
     font-weight: 600;
     font-size: 24px;
     line-height: 36px;
+    @media (max-width: 600px) {
+      font-size: 18px;
+    }
   }
   .actions {
     display: flex;
@@ -71,6 +81,30 @@ export default {
     }
     .action-button + .action-button {
       margin-left: 16px;
+    }
+
+    @media (max-width: 768px) {
+        margin-top: 16px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        button {
+          justify-content: center;
+          display: flex;
+          text-align: center;
+          flex: 1;
+        }
+      button {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        font-size: 12px !important;
+      }
+      a {
+        text-align: center;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        font-size: 12px !important;
+      }
     }
   }
 }

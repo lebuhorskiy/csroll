@@ -43,6 +43,9 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    padding: 16px;
+  }
   .head {
     display: flex;
     align-items: center;
@@ -53,6 +56,9 @@ export default {
       margin: 0 12px;
       display: block;
       padding: 0;
+      @media (max-width: 600px) {
+        font-size: 14px;
+      }
     }
     a {
       display: block;
@@ -62,9 +68,15 @@ export default {
       color: #576CB0;
       opacity: 0.5;
       transition: 0.2s;
+      @media (max-width: 600px) {
+        font-size: 12px;
+      }
       &:hover {
         opacity: 1;
       }
+    }
+    @media (max-width: 1600px) {
+      margin-bottom: 16px;
     }
   }
   .form {
@@ -72,6 +84,7 @@ export default {
       display: flex;
       margin-bottom: 6px;
       overflow: hidden;
+
       input {
         flex-grow: 1;
         border-radius: 10px;
@@ -107,6 +120,19 @@ export default {
         }
         &:focus-within {
           opacity: 0.5;
+        }
+      }
+      @media (max-width: 600px) {
+        flex-wrap: wrap;
+        input,button {
+          width: 100%;
+          height: 48px;
+          margin-right: 0;
+        }
+        button {
+          margin-top: 16px;
+          padding-left: 0;
+          margin-bottom: 5px;
         }
       }
     }

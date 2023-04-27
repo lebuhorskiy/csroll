@@ -8,6 +8,7 @@
       <img src="@/assets/images/big-skin.png" alt="">
     </div>
     <div class="quality">
+      <div class="rarity">FN</div>
       ★ Nomad Knife
     </div>
     <div class="name">Slaughter</div>
@@ -54,7 +55,7 @@ export default {
     }
   }
   .image {
-    height: 71px;
+    height: 72px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -82,9 +83,22 @@ export default {
     line-height: 140%;
     color: rgba(255, 255, 255, 0.5);
     white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
+    position: relative;
+    .rarity {
+      font-weight: 600;
+      position: absolute;
+      left: 0;
+      top: -20px;
+      font-size: 10px;
+      line-height: 15px;
+      height: 15px;
+      color: #576CB0;
+      margin-bottom: 8px;
+      opacity: 0.5;
+    }
   }
+
   .name {
     font-weight: 400;
     font-size: 12px;

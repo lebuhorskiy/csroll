@@ -115,6 +115,15 @@ export default {
     padding-right: 10px;
     flex-grow: 1;
     overflow-y: auto;
+    @media (max-width: 1024px) {
+      padding-right: 0;
+      height: 500px;
+
+    }
+    @media (max-width: 600px) {
+      grid-template-columns: repeat(2, 1fr);
+      padding-right: 5px;
+    }
     &::-webkit-scrollbar {
       width: 8px;
       background: rgba(69, 84, 137, 0.1);

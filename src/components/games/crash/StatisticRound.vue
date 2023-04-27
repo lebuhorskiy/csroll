@@ -4,7 +4,8 @@
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M10 4V1M14.25 5.7501L16.4 3.6001M16 10H19M14.25 14.25L16.4 16.4M10 16V19M5.75001 14.25L3.60001 16.4M4 10H1M5.75001 5.7501L3.60001 3.6001" stroke="#4E70E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <span class="title">Статистика раунда</span>
+      <span class="title" v-if="$root.width < 992">#1231231</span>
+      <div class="title" v-else>Статистика раунда</div>
       <div class="hash">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_685_2528)">
@@ -16,7 +17,7 @@
             </clipPath>
           </defs>
         </svg>
-        <span @click="setShowCheckGameModal(true)">fa26w444fa8w88f44w8asddsfgsdfg3</span>
+        <span @click.prevent.stop="setShowCheckGameModal(true)">fa26w444fa...8w84w8asddsfgsdfg3</span>
       </div>
       <router-link to="/crash/histories" class="icon">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -68,6 +69,7 @@
 import {mapMutations} from "vuex";
 
 export default {
+  components: {},
   methods: {
     ...mapMutations({
       setShowCheckGameModal: 'config/setShowCheckGameModal'
@@ -84,9 +86,24 @@ export default {
   justify-content: space-between;
   align-items: center;
   background: rgba(69, 84, 137, 0.1);
+
+  @media (max-width: 1890px) {
+    padding: 15px 18px;
+  }
+  @media (max-width: 992px) {
+    flex-wrap: wrap;
+    padding: 0;
+  }
   .statistic-left {
     display: flex;
     align-items: center;
+    @media (max-width: 992px) {
+      width: 100%;
+      padding: 16px;
+      svg {
+        min-width: 20px;
+      }
+    }
     .icon {
       display: flex;
       align-items: center;
@@ -97,6 +114,9 @@ export default {
       line-height: 23px;
       margin-left: 12px;
       margin-right: 24px;
+      @media (max-width: 575px) {
+        font-size: 14px;
+      }
     }
     .hash {
       width: 195px;
@@ -110,6 +130,15 @@ export default {
       align-items: center;
       padding: 0 8px;
       transition: 0.2s;
+      overflow: hidden;
+      @media (max-width: 1890px) {
+        width: 150px;
+        min-width: 150px;
+      }
+      @media (max-width: 575px) {
+        flex-grow: 1;
+        min-width: auto;
+      }
       &:hover {
         opacity: 0.8;
       }
@@ -118,20 +147,30 @@ export default {
         font-size: 12px;
         line-height: 100%;
         color: #455489;
+        max-width: 100%;
+        display: block;
         overflow: hidden;
         white-space: nowrap;
-        text-overflow: ellipsis;
         flex-grow: 1;
       }
       svg {
         min-width: 12px;
         margin-right: 4px;
       }
+      @media (max-width: 992px) {
+        margin-left: auto;
+      }
     }
   }
   .statistic-right {
     display: flex;
     align-items: center;
+    @media (max-width: 992px) {
+      background: rgba(69, 84, 137, 0.1);
+      width: 100%;
+      padding: 16px;
+      justify-content: space-between;
+    }
     .indicator {
       display: flex;
       align-items: center;
@@ -139,18 +178,35 @@ export default {
         display: flex;
         align-items: center;
         margin-right: 8px;
+        @media (max-width: 575px) {
+          svg {
+            width: 15px;
+          }
+        }
       }
       .text {
         strong {
           font-weight: 700;
           font-size: 16px;
-          line-height: 24px
+          line-height: 24px;
+          @media (max-width: 575px) {
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 24px;
+
+          }
         }
         span {
           font-weight: 700;
           font-size: 12.5px;
           line-height: 14px;
-          color: rgba(87, 108, 176, 1)
+          color: rgba(87, 108, 176, 1);
+          @media (max-width: 575px) {
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 14px;
+            white-space: nowrap;
+          }
         }
         strong,span {
           display: block;
@@ -159,6 +215,12 @@ export default {
     }
     .indicator + .indicator {
       margin-left: 48px;
+      @media (max-width: 1890px) {
+        margin-left: 30px;
+      }
+      @media (max-width: 575px) {
+        margin-left: 10px;
+      }
     }
   }
 }

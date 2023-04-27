@@ -61,6 +61,9 @@
 .top-panel {
   display: flex;
   align-items: center;
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
   .head {
     display: flex;
     align-items: center;
@@ -77,6 +80,11 @@
     display: flex;
     margin-left: 32px;
     align-items: center;
+    @media (max-width: 768px) {
+      width: 100%;
+      margin-left: 0;
+      margin-top: 16px;
+    }
     .tab {
       display: flex;
       align-items: center;
@@ -91,6 +99,9 @@
       transition: 0.2s;
       svg {
         margin-right: 8px;
+      }
+      @media (max-width: 600px) {
+        font-size: 14px;
       }
       svg {
         path {
@@ -110,6 +121,9 @@
     }
     .tab + .tab {
       margin-left: 32px;
+      @media (max-width: 600px) {
+        margin-left: 20px;
+      }
     }
   }
 }

@@ -1171,6 +1171,9 @@ import HistoriesTopPanel from "@/components/games/HistoriesTopPanel.vue";
       width: 100%;
       transition: 0.2s;
       overflow: hidden;
+      @media (max-width: 1300px) {
+        flex-wrap: wrap;
+      }
       &:hover {
         opacity: 0.8;
       }
@@ -1181,6 +1184,9 @@ import HistoriesTopPanel from "@/components/games/HistoriesTopPanel.vue";
         justify-content: center;
         align-items: center;
         background: rgba(69, 84, 137, 0.1);
+        @media (max-width: 1300px) {
+          height: 80px;
+        }
         .id {
           font-weight: 600;
           font-size: 14px;
@@ -1211,6 +1217,9 @@ import HistoriesTopPanel from "@/components/games/HistoriesTopPanel.vue";
         svg {
           margin-right: 8px;
         }
+        @media (max-width: 1600px) {
+          margin-left: 20px;
+        }
       }
       .players {
         display: flex;
@@ -1223,11 +1232,47 @@ import HistoriesTopPanel from "@/components/games/HistoriesTopPanel.vue";
           margin-right: 8px;
         }
       }
+
+      @media (max-width: 768px) {
+        .left-info {
+          width: 100%;
+          justify-content: space-between;
+          padding-left: 16px;
+          padding-right: 16px;
+          margin-bottom: 16px;
+          height: 60px;
+        }
+        .bank,.players {
+          margin-left: 0;
+          margin-right: 0;
+          width: calc(50% - 8px);
+        }
+        .bank {
+          justify-content: center;
+          margin-left: 16px;
+          @media (max-width: 600px) {
+            font-size: 14px;
+            padding-right: 0;
+            padding-left: 0;
+          }
+        }
+      }
       .teams {
         margin-left: auto;
         display: flex;
         padding: 24px 0;
         padding-right: 32px;
+        @media (max-width: 1300px) {
+          width: 100%;
+          background: rgba(69, 84, 137, 0.1);
+          padding: 16px;
+        }
+        @media (max-width: 768px) {
+          display: grid;
+          margin-top: 16px;
+          grid-template-columns: repeat(2, 1fr);
+          grid-gap: 16px;
+        }
         .team {
           width: 147px;
           min-width: 147px;
@@ -1237,6 +1282,10 @@ import HistoriesTopPanel from "@/components/games/HistoriesTopPanel.vue";
           overflow: hidden;
           align-items: center;
           background: rgba(87, 108, 176, 0.1);
+          @media (max-width: 768px) {
+            width: 100%;
+            min-width: 100%;
+          }
           .square {
             margin-right: 12px;
             opacity: 0.2;
@@ -1244,12 +1293,20 @@ import HistoriesTopPanel from "@/components/games/HistoriesTopPanel.vue";
             width: 32px;
             border-radius: 8px;
             min-width: 32px;
+            @media (max-width: 600px) {
+              width: 25px;
+              height: 25px;
+              min-width: 25px;
+            }
           }
           span {
             font-weight: 700;
             font-size: 16px;
             line-height: 24px;
             color: #576CB0;
+            @media (max-width: 600px) {
+              font-size: 14px;
+            }
           }
           &.active {
             span {
@@ -1282,6 +1339,9 @@ import HistoriesTopPanel from "@/components/games/HistoriesTopPanel.vue";
         }
         .team + .team {
           margin-left: 24px;
+          @media (max-width: 768px) {
+            margin-left: 0;
+          }
         }
       }
     }

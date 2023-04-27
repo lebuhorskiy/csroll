@@ -1125,6 +1125,19 @@ import HistoriesTopPanel from "@/components/games/HistoriesTopPanel.vue";
     margin-top: 24px;
     grid-template-columns: repeat(6, 1fr);
     grid-gap: 16px;
+    @media (max-width: 1600px) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+    @media (max-width: 1250px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @media (max-width: 992px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 620px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 9px;
+    }
     .item {
       border-radius: 15px;
       overflow: hidden;
@@ -1136,10 +1149,16 @@ import HistoriesTopPanel from "@/components/games/HistoriesTopPanel.vue";
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @media (max-width: 600px) {
+          padding: 15px 10px;
+        }
         span {
           font-weight: 700;
           font-size: 12px;
           line-height: 100%;
+          @media (max-width: 600px) {
+            font-size: 11px;
+          }
         }
         em {
           font-style: normal;
@@ -1147,6 +1166,9 @@ import HistoriesTopPanel from "@/components/games/HistoriesTopPanel.vue";
           font-size: 12px;
           line-height: 100%;
           color: #576CB0;
+          @media (max-width: 600px) {
+            font-size: 11px;
+          }
         }
       }
       .item-content {
@@ -1155,6 +1177,9 @@ import HistoriesTopPanel from "@/components/games/HistoriesTopPanel.vue";
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           grid-gap: 8px;
+          @media (max-width: 600px) {
+            grid-template-columns: repeat(1, 1fr);
+          }
           .indicator {
             height: 50px;
             display: flex;
@@ -1170,6 +1195,9 @@ import HistoriesTopPanel from "@/components/games/HistoriesTopPanel.vue";
             background: rgba(69, 84, 137, 0.1);
             border-radius: 8px;
             border: 1px solid transparent;
+            @media (max-width: 600px) {
+              font-size: 14px;
+            }
             &.accent {
               border: 1px solid #EAC159;
               color: #EAC159;
@@ -1187,6 +1215,9 @@ import HistoriesTopPanel from "@/components/games/HistoriesTopPanel.vue";
           font-weight: 600;
           font-size: 16px;
           line-height: 100%;
+          @media (max-width: 600px) {
+            font-size: 14px;
+          }
         }
       }
       &:hover {

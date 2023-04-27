@@ -1,7 +1,7 @@
 <template>
   <div class="ui-dropdown">
     <div class="select" :class="{'active': isShowVariants}" @click="isShowVariants = !isShowVariants">
-      {{ value }}
+      {{ value.label }}
       <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M1 1L5 5L9 1" stroke="#576CB0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
@@ -9,11 +9,8 @@
     <transition name="fade">
       <div class="variants" v-if="isShowVariants">
         <div class="variants-body">
-          <div class="variant" @click="selectVariant('RUB')">
-            RUB
-          </div>
-          <div class="variant" @click="selectVariant('USD')">
-            USD
+          <div class="variant" v-for="(item, i) in items" :key="i" @click="selectVariant(item.value)">
+            {{ item.label }}
           </div>
         </div>
       </div>
@@ -22,7 +19,7 @@
 </template>
 <script>
 export default {
-  props: ['value'],
+  props: ['value', 'items'],
   data () {
     return {
       isShowVariants: false
@@ -79,8 +76,19 @@ export default {
     left: 0;
     width: 100%;
     padding-top: 4px;
+
     .variants-body {
+      max-height: 200px;
+      overflow-y: auto;
       border-radius: 8px;
+      &::-webkit-scrollbar {
+        background: rgba(69, 84, 137, 0.1);
+        width: 3px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: #455489;
+        opacity: 0.5;
+      }
       .variant {
         width: 100%;
         padding: 9px 12px;

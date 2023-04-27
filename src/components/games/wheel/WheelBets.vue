@@ -1,9 +1,9 @@
 <template>
   <div class="wheel-bets">
-    <WheelBet color="blue" />
-    <WheelBet color="green" />
-    <WheelBet color="pink" />
-    <WheelBet color="yellow" />
+    <WheelBet :empty="true" color="blue" />
+    <WheelBet color="green" :is-win="true" />
+    <WheelBet color="pink"  />
+    <WheelBet color="yellow"  />
   </div>
 </template>
 <script setup>
@@ -17,5 +17,11 @@ import WheelBet from "@/components/games/wheel/WheelBet.vue";
   grid-gap: 11px;
   flex-grow: 1;
   overflow: hidden;
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 620px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 </style>

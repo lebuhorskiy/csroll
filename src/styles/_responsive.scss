@@ -1,0 +1,12 @@
+.tablet-header {
+  display: none !important;
+  @media (max-width: 1200px) {
+    display: flex !important;
+  }
+}
+
+.header-top {
+  @media (max-width: 1024px) {
+    display: none !important;
+  }
+}

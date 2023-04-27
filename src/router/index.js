@@ -16,6 +16,8 @@ import ProfileView from "@/views/ProfileView.vue";
 import SupportView from "@/views/support/SupportView.vue";
 import SupportTickets from "@/views/support/SupportTickets.vue";
 import SupportTicket from "@/views/support/SupportTicket.vue";
+import PrivacyPolicy from "@/views/PrivacyPolicy.vue";
+import TermsAndConditions from "@/views/TermsAndConditions.vue";
 
 Vue.use(VueRouter)
 
@@ -104,6 +106,17 @@ const routes = [
     path: '/support/tickets/:1',
     name: 'support.tickets.details',
     component: SupportTicket
+  },
+
+  {
+    path: '/support/privacy-policy',
+    name: 'privacy-policy',
+    component: PrivacyPolicy
+  },
+  {
+    path: '/support/terms-and-conditions',
+    name: 'terms-and-conditions',
+    component: TermsAndConditions
   }
 ]
 

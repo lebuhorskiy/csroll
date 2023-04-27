@@ -102,6 +102,20 @@ export default {
   position: absolute;
   left: -470px;
   top: -600px;
+  @media (max-width: 600px) {
+    width: 750px;
+    height: 755px;
+    left: -470px;
+    top: -480px;
+    margin-top: -30px;
+  }
+  @media (max-width: 1500px) and (min-width: 1200px) {
+    width: 750px;
+    height: 755px;
+    left: -470px;
+    top: -480px;
+    margin-top: -30px;
+  }
   .circle-bg {
     position: absolute;
     height: 100%;
@@ -115,6 +129,14 @@ export default {
     position: absolute;
     bottom: 50px;
     right: 100px;
+    @media (max-width: 600px) {
+      bottom: 62px;
+      right: 65px;
+    }
+    @media (max-width: 1500px) and (min-width: 1200px) {
+      bottom: 62px;
+      right: 65px;
+    }
   }
 }
 

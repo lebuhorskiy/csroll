@@ -18,6 +18,12 @@
       </router-link>
     </div>
     <div class="content">
+      <router-link to="/top-referrals" class="top-referrals mobile">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5.33333 14H10.6667M8 11.3334V14M8 11.3334C8.88406 11.3334 9.7319 10.9822 10.357 10.357C10.9821 9.73192 11.3333 8.88407 11.3333 8.00002V2.66669H4.66667V8.00002C4.66667 8.88407 5.01786 9.73192 5.64298 10.357C6.2681 10.9822 7.11595 11.3334 8 11.3334ZM4.66667 6.00002C4.66667 6.7364 4.06971 7.33335 3.33333 7.33335C2.59695 7.33335 2 6.7364 2 6.00002C2 5.26364 2.59695 4.66669 3.33333 4.66669C4.06971 4.66669 4.66667 5.26364 4.66667 6.00002ZM14 6.00002C14 6.7364 13.403 7.33335 12.6667 7.33335C11.9303 7.33335 11.3333 6.7364 11.3333 6.00002C11.3333 5.26364 11.9303 4.66669 12.6667 4.66669C13.403 4.66669 14 5.26364 14 6.00002Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Топ рефоводов
+      </router-link>
       <div class="types">
         <div class="tabs">
           <div class="tab active">Стандарт</div>
@@ -348,6 +354,9 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media (max-width: 600px) {
+      flex-wrap: wrap;
+    }
     h2 {
       display: flex;
       align-items: center;
@@ -360,31 +369,22 @@ export default {
       font-size: 24px;
       line-height: 36px;
     }
-    .top-referrals {
-      display: flex;
-      align-items: center;
-      svg {
-        margin-right: 8px;
-      }
-      font-weight: 600;
-      font-size: 14px;
-      line-height: 100%;
-      &:hover {
-        opacity: 0.8;
-      }
-      transition: 0.2s;
-      background: #4E70E9;
-      border-radius: 8px;
-      padding: 12px 32px;
-    }
   }
   .content {
     display: flex;
     align-items: flex-start;
     margin-top: 24px;
+    @media (max-width: 1200px) {
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
     .types {
       width: 593px;
       min-width: 593px;
+      @media (max-width: 1200px) {
+        order: 1;
+      }
+      @media (max-width: 768px) {}
       .tabs {
         margin-bottom: 11px;
         border-radius: 20px;
@@ -408,6 +408,9 @@ export default {
           &.active,&:hover {
             background: rgba(69, 84, 137, 0.1);
           }
+          @media (max-width: 600px) {
+            font-size: 14px;
+          }
         }
         .tab + .tab {
           border-left: 1px solid rgba(69, 84, 137, 0.2)
@@ -419,24 +422,45 @@ export default {
         }
         .to_next {
           width: 30%;
+          @media (max-width: 600px) {
+            width: 70%;
+            text-align: right;
+          }
         }
         .give {
           width: 20%;
+          @media (max-width: 600px) {
+            width: 50%;
+            margin-top: 10px;
+            padding-left: 7px;
+          }
         }
         .referral_give {
           width: 30%;
           text-align: right;
+          @media (max-width: 600px) {
+            margin-top: 10px;
+            width: 50%;
+          }
         }
         .head {
           display: flex;
           align-items: center;
           padding: 13px 24px;
           justify-content: space-between;
+          @media (max-width: 600px) {
+            flex-wrap: wrap;
+            padding-left: 0;
+            padding-right: 0;
+          }
           & > div {
             font-weight: 600;
             font-size: 14px;
             line-height: 21px;
             color: #576CB0;
+            &.give {
+              padding-left: 0;
+            }
           }
         }
         .table-items {
@@ -449,6 +473,10 @@ export default {
             padding: 9px 24px;
             &.select {
               background: rgba(234, 193, 89, 0.1);
+            }
+            @media (max-width: 600px) {
+              flex-wrap: wrap;
+              padding: 9px 16px;
             }
             .lvl {
               .lvl-avatar {
@@ -486,17 +514,31 @@ export default {
           }
         }
       }
+      @media (max-width: 1200px) {
+        width: 100%;
+        min-width: 100%;
+        margin-bottom: 16px;
+      }
     }
     .right-col {
       margin-left: 12px;
       flex-grow: 1;
       overflow: hidden;
       display: flex;
+      @media (max-width: 1200px) {
+        margin-left: 0;
+      }
+      @media (max-width: 1200px) {
+        order: 0;
+      }
       .user-informations {
         overflow: hidden;
         width: 100%;
         .top-indicators {
           display: flex;
+          @media (max-width: 1600px) {
+            flex-wrap: wrap;
+          }
           .your-level {
             padding: 24px;
             width: 294px;
@@ -505,6 +547,11 @@ export default {
             filter: drop-shadow(0px 20px 30px rgba(23, 18, 43, 0.2));
             border-radius: 16px 0px 0px 16px;
             min-width: 294px;
+            @media (max-width: 1600px) {
+              width: 100%;
+              min-width: 100%;
+              margin-bottom: 16px;
+            }
             .your-level_head {
               display: flex;
               align-items: center;
@@ -568,6 +615,10 @@ export default {
             background: linear-gradient(251.16deg, rgba(37, 47, 80, 0) -17.49%, rgba(37, 47, 80, 0.5) 104.25%);
             filter: drop-shadow(0px 20px 30px rgba(23, 18, 43, 0.2));
             border-radius: 0px 0px 16px 0px;
+            @media (max-width: 1600px) {
+              width: 100%;
+              border-radius: 16px;
+            }
             .indicators {
               padding: 31px 32px;
               padding-right: 35px;
@@ -576,17 +627,33 @@ export default {
               border-radius: 0px 16px 0px 0px;
               display: flex;
               justify-content: space-between;
+
+              @media (max-width: 1600px) {
+                padding: 16px;
+              }
               .indicator {
                 align-items: center;
                 display: flex;
                 position: relative;
+                @media (max-width: 600px) {
+                  width: 50%;
+                }
                 .indicator-icon {
                   position: absolute;
                   left: 0;
+                  svg {
+                    width: 40px;
+                  }
                 }
                 .indicator-text {
                   padding-right: 24px;
                   padding-left: 40px;
+                  @media (max-width: 1600px) {
+                    padding-left: 20px;
+                  }
+                  @media (max-width: 600px) {
+                    padding-left: 10px;
+                  }
                   strong,span {
                     display: block;
                     width: 100%;
@@ -596,11 +663,22 @@ export default {
                     font-size: 24px;
                     line-height: 27px;
                     color: #EAC159;
+                    @media (max-width: 1600px) {
+                      font-size: 20px;
+                    }
+                    @media (max-width: 575px) {
+                      font-size: 14px;
+                      line-height: 16px;
+                    }
                   }
                   span {
                     font-weight: 600;
                     font-size: 14px;
                     line-height: 21px;
+                    @media (max-width: 575px) {
+                      font-size: 12px;
+                      line-height: 16px;
+                    }
                   }
                 }
                 .indicator-check {
@@ -614,12 +692,23 @@ export default {
                   svg {
                     margin-top: 2px;
                   }
+                  @media (max-width: 768px) {
+                    display: none;
+                  }
                   border: 1px solid #4ABA62;
+                }
+              }
+              .indicator:last-child {
+                @media (max-width: 768px) {
+                  margin-top: 0;
                 }
               }
             }
             .user-form {
               padding: 29px 32px;
+              @media (max-width: 600px) {
+                padding: 16px;
+              }
               .user-form_input {
                 label {
                   display: block;
@@ -678,12 +767,58 @@ export default {
         }
         .questions {
           padding: 24px 0;
+          @media (max-width: 1600px) {
+            padding-top: 16px;
+          }
+          @media (max-width: 768px) {
+            padding-bottom: 6px;
+          }
           .question + .question {
             margin-top: 12px;
           }
         }
 
       }
+    }
+  }
+}
+.top-referrals {
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  svg {
+    margin-right: 8px;
+  }
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 100%;
+  &:hover {
+    opacity: 0.8;
+  }
+  transition: 0.2s;
+  background: #4E70E9;
+  border-radius: 8px;
+  padding: 12px 32px;
+  @media (max-width: 600px) {
+    width: 100%;
+    margin-top: 10px;
+    justify-content: center;
+  }
+}
+
+.top-referrals {
+  &.mobile {
+    display: none;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 16px;
+    @media (max-width: 768px) {
+      display: flex;
+      order: 1;
     }
   }
 }

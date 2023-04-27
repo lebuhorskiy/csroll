@@ -30,6 +30,11 @@ export default {
     height: 80px;
     border-radius: 100%;
     overflow: hidden;
+    @media (max-width: 600px) {
+      width: 60px;
+      height: 60px;
+      min-width: 60px;
+    }
     &::after {
       position: absolute;
       content: "";
@@ -58,6 +63,10 @@ export default {
       left: 0;
       z-index: 3;
       position: absolute;
+      @media (max-width: 600px) {
+        font-size: 12px;
+        bottom: 5px;
+      }
     }
 
   }
@@ -74,12 +83,19 @@ export default {
       font-size: 14px;
       line-height: 21px;
       margin-bottom: 2px;
+      @media (max-width: 600px) {
+        font-size: 14px;
+        margin-bottom: 0px;
+      }
     }
     strong {
       font-weight: 700;
       font-size: 16px;
       line-height: 24px;
       color: #EAC159;
+      @media (max-width: 600px) {
+        font-size: 14px;
+      }
     }
   }
 }

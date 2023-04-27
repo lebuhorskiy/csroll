@@ -58,12 +58,27 @@ export default {
   margin-bottom: 16px;
   display: flex;
   justify-content: space-between;
+
   &.pr {
-    padding-right: 350px;
+    padding-right: 60px;
+    @media (max-width: 1200px) {
+      padding-right: 50px;
+    }
   }
   .nav {
     display: flex;
     padding-left: 42px;
+    @media (max-width: 1890px) {
+      padding-left: 5px;
+    }
+    @media (max-width: 1200px) {
+      flex-grow: 1;
+      justify-content: space-between;
+      padding-right: 40px;
+    }
+    @media (max-width: 1100px) {
+      padding-right: 20px;
+    }
     a {
       display: flex;
       align-items: center;
@@ -104,6 +119,12 @@ export default {
     }
     a + a {
       margin-left: 32px;
+      @media (max-width: 1890px) {
+        margin-left: 24px;
+      }
+      @media (max-width: 1200px) {
+        margin-left: 0;
+      }
     }
   }
   .user {

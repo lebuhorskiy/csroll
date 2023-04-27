@@ -8,13 +8,48 @@
     </div>
     <div class="skins">
       <div class="skin">
-        <img src="@/assets/images/skin-1.png" alt="">
+
+        <VTooltip
+            :placement="'top'" :triggers="['hover']">
+          <img src="@/assets/images/skin-1.png" alt="">
+
+          <template #popper>
+            <PopoverContent>
+              Desert Eagle<br>
+              Paradontax<br>
+              FN <span class="yellow-color">$ 2 761,99</span><br>
+            </PopoverContent>
+          </template>
+        </VTooltip>
+
       </div>
       <div class="skin">
-        <img src="@/assets/images/skin-2.png" alt="">
+        <VTooltip
+            :placement="'top'" :triggers="['hover']">
+          <img src="@/assets/images/skin-2.png" alt="">
+
+          <template #popper>
+            <PopoverContent>
+              Desert Eagle<br>
+              Paradontax<br>
+              FN <span class="yellow-color">$ 2 761,99</span><br>
+            </PopoverContent>
+          </template>
+        </VTooltip>
       </div>
       <div class="skin">
-        <img src="@/assets/images/skin-3.png" alt="">
+        <VTooltip
+            :placement="'top'" :triggers="['hover']">
+          <img src="@/assets/images/skin-3.png" alt="">
+
+          <template #popper>
+            <PopoverContent>
+              Desert Eagle<br>
+              Paradontax<br>
+              FN <span class="yellow-color">$ 2 761,99</span><br>
+            </PopoverContent>
+          </template>
+        </VTooltip>
       </div>
     </div>
     <div class="coeficient" v-if="bet.status !== 'wait'">
@@ -45,7 +80,10 @@
   </div>
 </template>
 <script>
+import PopoverContent from "@/components/UI/PopoverContent.vue";
+
 export default {
+  components: {PopoverContent},
   props: {
     bet: {
       type: Object,
@@ -62,16 +100,26 @@ export default {
   display: flex;
   align-items: center;
   padding: 0 19px;
+  @media (max-width: 575px) {
+    padding: 0 15px;
+  }
   .bet-user {
     width: 50px;
     height: 50px;
     border-radius: 100%;
+    min-width: 50px;
     img {
       width: 100%;
       height: 100%;
     }
 
     margin-right: 40px;
+    @media (max-width: 1890px) {
+      margin-right: 20px;
+    }
+    @media (max-width: 575px) {
+      margin-right: 10px;
+    }
   }
   .bet-cost {
     width: 96px;
@@ -82,18 +130,34 @@ export default {
     font-weight: 600;
     font-size: 14px;
     line-height: 21px;
+    @media (max-width: 575px) {
+      width: 80px;
+      min-width: 80px;
+    }
   }
   .skins {
     width: 200px;
     min-width: 200px;
     margin-right: 85px;
     display: flex;
+    @media (max-width: 1890px) {
+      margin-right: 40px;
+    }
+    @media (max-width: 900px) {
+      display: none;
+    }
+
     .skin {
       width: 60px;
       height: 45px;
       display: flex;
       align-items: center;
       justify-content: center;
+      ::v-deep {
+        strong {
+          color: rgba(234, 193, 89, 1);
+        }
+      }
       img {
         max-width: 100%;
         max-height: 100%;
@@ -113,9 +177,13 @@ export default {
     font-size: 14px;
     line-height: 21px;
     width: 100px;
+    @media (max-width: 650px) {
+      display: none;
+    }
   }
   .result {
     margin-left: auto;
+
   }
   .in-game {
     background: linear-gradient(251.16deg, #FFFFFF -17.5%, rgba(37, 47, 80, 0) -17.49%, #252F50 104.25%), linear-gradient(79.73deg, rgba(115, 121, 158, 0.5) -157.22%, rgba(115, 121, 158, 0) 109.61%);
@@ -134,6 +202,9 @@ export default {
       line-height: 21px;
       color: #4ABA62;
       margin-right: 25px;
+      @media (max-width: 575px) {
+        display: none;
+      }
     }
     .prize-img {
       display: flex;
@@ -145,6 +216,9 @@ export default {
       img {
         max-width: 100%;
         max-height: 100%;
+      }
+      @media (max-width: 400px) {
+        display: none;
       }
     }
     .prize-bg {

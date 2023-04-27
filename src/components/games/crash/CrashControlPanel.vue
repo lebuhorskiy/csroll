@@ -1,47 +1,37 @@
 <template>
   <div class="crash-control">
     <div class="skin">
-      <div class="empty-skin">
-
+      <div class="slider-wrapper">
+        <div class="slider-navs">
+          <div class="slider-nav" @click="prev">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 4L6 8L10 12" stroke="#455489" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="slider-nav" @click="next">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 4L10 8L6 12" stroke="#455489" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <agile :pause-on-hover="false" :pause-on-dots-hover="false" :swipe-distance="1000000000" ref="agile" :infinite="false" :nav="false" :dots="false" :rtl="false" :navButtons="false" :slidesToShow="2" :center-mode="true">
+          <BetSkins :skin="{
+          id: 0,
+          color: 'yellow'
+        }" />
+          <BetSkins :skin="{
+          id: 0,
+          color: 'pink'
+        }" />
+          <BetSkins />
+          <BetSkins />
+        </agile>
       </div>
     </div>
     <div class="panel">
       <div class="panel-methods">
-        <div class="panel-method">
-          <div class="icon">
-            <svg width="32" height="25" viewBox="0 0 32 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g clip-path="url(#clip0_1907_2998)">
-                <path d="M23.5805 11.5131C23.6821 11.5838 23.7966 11.674 23.8329 11.7161C23.9013 11.7918 23.9529 11.9699 23.9214 12.0243C23.8965 12.0675 23.7912 12.8995 23.7894 13.0649C23.7869 13.2632 23.817 13.3108 23.9901 13.4045L24.136 13.4825L24.0785 13.6763L24.0232 13.8714L27.8241 16.0681C30.9089 17.8521 31.6292 18.2733 31.6421 18.314C31.6534 18.3417 31.6579 18.4229 31.6501 18.4941C31.6404 18.6156 31.6191 18.6578 31.2929 19.2112C30.8372 19.9835 30.1672 21.0528 29.9621 21.3341C29.7724 21.5939 29.7084 21.6417 29.5286 21.6591C29.2705 21.6859 29.0541 21.5098 28.2386 20.598C27.9807 20.3101 27.682 19.9776 27.5751 19.8584C27.4681 19.7393 27.2647 19.504 27.1209 19.3334C26.9758 19.165 26.714 18.8629 26.5378 18.6645C26.3615 18.466 26.0502 18.1081 25.8445 17.8715C25.6401 17.6326 25.3948 17.3491 25.3002 17.2401C25.0858 16.9924 24.6876 16.6116 24.4252 16.3998C24.3152 16.3122 24.1043 16.1423 23.9586 16.022C23.6053 15.7367 23.2192 15.4869 23.0586 15.4397C22.8794 15.3879 22.6801 15.3971 22.5218 15.4663C22.4047 15.5168 22.3688 15.5475 22.311 15.6474C22.2729 15.7132 22.2238 15.8453 22.2039 15.9427C22.1696 16.1015 22.1806 16.1926 22.3314 16.9906C22.4214 17.4691 22.534 18.0606 22.5854 18.302C22.6345 18.5421 22.6638 18.7587 22.6507 18.7814C22.606 18.8586 22.4686 18.8551 22.021 18.7695C21.1247 18.5949 20.9366 18.5531 20.8571 18.5072C20.7866 18.4666 20.7034 18.3642 20.7003 18.317C20.698 18.2582 20.7744 18.1418 20.8606 18.0766L20.942 18.0145L20.9405 17.6868C20.9384 17.5071 20.9361 17.0761 20.9324 16.726L20.9245 16.095L20.8358 16.0439C20.7722 16.0072 20.7419 16.0019 20.7275 16.0268C20.7117 16.0541 20.676 16.0425 20.56 15.9757C20.4304 15.901 20.4071 15.8785 20.3859 15.7997L20.3609 15.7066L19.751 15.3672C19.4128 15.1814 19.0948 15.0132 19.0418 14.9948L18.9485 14.9622L18.7739 15.264C18.6308 15.5114 18.0072 16.3957 17.8636 16.555C17.8423 16.576 17.7765 16.6531 17.7134 16.7256C17.4767 17.0038 16.9976 17.46 16.7278 17.6645C16.6255 17.7418 16.5795 17.7637 16.5561 17.7411C16.5383 17.7248 16.1914 17.3917 15.7819 17.0044C15.3736 16.6148 15.0277 16.2853 15.0121 16.2702C14.9768 16.2317 15.0852 16.0915 15.2708 15.9382C15.4591 15.7804 15.8091 15.4163 16.2444 14.9258C16.4666 14.6726 16.8652 14.1458 17.0747 13.8308L17.2403 13.5812L17.1835 13.5273C17.1524 13.4973 17.1138 13.4539 17.0954 13.4281C17.0686 13.3854 17.0748 13.3799 17.167 13.3514L17.2675 13.3246L17.5359 12.8499C17.7375 12.4909 17.8015 12.3645 17.7919 12.3287C17.7842 12.3 17.7187 12.235 17.6467 12.1814C17.5217 12.0882 17.4933 12.0325 17.5291 11.9654C17.537 11.9518 17.5199 11.9237 17.488 11.9054C17.438 11.8766 17.426 11.8817 17.384 11.9543C17.3511 12.0111 17.3289 12.0285 17.3137 12.0077C17.3027 11.9953 17.2188 11.9045 17.127 11.8063C17.0376 11.7093 16.9699 11.6219 16.9765 11.6106C16.9844 11.5969 16.9646 11.5735 16.9328 11.5551C16.8851 11.5276 16.8694 11.5337 16.8366 11.5904C16.8143 11.629 16.7629 11.6811 16.7237 11.707C16.5647 11.809 16.8973 11.9886 12.223 9.29456C8.01937 6.87178 7.97163 6.84427 7.95241 6.77267C7.94184 6.73329 7.94308 6.67349 7.95105 6.63874C7.96725 6.58453 7.95982 6.57117 7.90228 6.55011C7.83075 6.52704 7.82508 6.48443 7.85996 6.2564L7.87039 6.18071L7.59302 6.02085C7.43843 5.93175 7.2708 5.84421 7.21912 5.82351L7.12581 5.79091L7.03262 5.95205C6.88429 6.20851 6.87581 6.21269 6.71894 6.12228C6.59617 6.05152 6.58743 6.04043 6.61237 5.99731C6.6373 5.95419 6.63084 5.94441 6.5447 5.9099C6.4667 5.87705 6.44563 5.85582 6.43061 5.7927C6.40825 5.69508 6.47029 5.58256 6.55373 5.56408C6.58959 5.55449 6.65107 5.56874 6.69199 5.59232C6.73974 5.61984 6.76545 5.62256 6.76327 5.60012C6.76372 5.57314 6.3217 5.31536 5.06927 4.60865L3.37543 3.65359L3.27694 3.68761C3.16052 3.72643 3.1342 3.71428 3.12907 3.62357L3.12384 3.55399L3.06769 3.58819C2.99683 3.63208 2.89872 3.58159 2.91956 3.50887C2.93777 3.44069 2.86957 3.40138 2.81952 3.45122C2.77438 3.49782 2.69769 3.4627 2.70742 3.39871C2.71443 3.36038 2.66931 3.32833 2.34254 3.14907L1.96898 2.94588L2.0033 2.84462C2.02081 2.78813 2.08977 2.65842 2.15373 2.55306L2.27212 2.36408L2.64699 2.56501C2.90101 2.70233 3.0362 2.76209 3.06717 2.75573C3.12944 2.73715 3.19047 2.77838 3.18276 2.8284C3.17373 2.8807 3.23057 2.91345 3.2737 2.88082C3.31587 2.8446 3.3964 2.89404 3.41693 2.96337C3.43038 3.01348 3.4372 3.01742 3.48968 3.0053C3.57181 2.98908 3.60329 3.01328 3.62206 3.11185L3.63795 3.19969L5.32471 4.13554C6.93059 5.02779 7.01374 5.0727 7.08188 5.05447C7.1487 5.03852 7.16935 5.00805 7.59595 4.27045C8.07504 3.44207 8.07373 3.44434 8.21225 3.48786C8.38068 3.54257 8.47016 3.77571 8.5894 4.492C8.60746 4.60228 8.64152 4.77926 8.66352 4.88272C8.68553 4.98619 8.69694 5.12893 8.69045 5.19782C8.6772 5.3203 8.67816 5.32388 8.74079 5.29946C8.77569 5.28629 8.83403 5.27452 8.86691 5.27531C8.95708 5.28189 9.36195 5.47287 10.2436 5.92959C10.6656 6.1486 11.3183 6.48241 11.6926 6.6739C12.675 7.17657 13.3377 7.5192 14.0479 7.89519C14.872 8.33085 15.7306 8.78031 16.2943 9.06887C17.2731 9.5725 17.6545 9.7832 17.691 9.84058C17.735 9.91131 17.7291 10.0472 17.6766 10.1379C17.6438 10.1947 17.6464 10.2113 17.6918 10.2375C17.7214 10.2545 17.7575 10.2602 17.7699 10.2492C17.7899 10.2304 18.0505 10.2777 18.2437 10.3316C18.3038 10.3481 18.3044 10.3575 18.2666 10.4386C18.2305 10.5116 18.2313 10.5363 18.2696 10.5644C18.318 10.6014 18.318 10.6014 18.4991 10.2882C18.7118 9.92052 18.8175 9.80593 19.0086 9.73754C19.2597 9.64927 19.2181 9.63738 21.184 10.4679C22.1695 10.8815 23.047 11.2511 23.1367 11.2846C23.2251 11.3204 23.3194 11.3566 23.347 11.3665C23.3746 11.3764 23.4789 11.4425 23.5805 11.5131ZM8.14443 4.16595C8.10332 4.18462 8.0503 4.24484 8.00305 4.32655L7.92691 4.45818L7.84734 4.41232L7.76777 4.36646L7.66145 4.55029C7.49737 4.83398 7.48252 4.80726 7.94858 5.07588C8.27596 5.26456 8.35265 5.29968 8.39927 5.28721C8.5414 5.25111 8.54591 5.11754 8.43088 4.62457C8.32153 4.17421 8.27756 4.10348 8.14443 4.16595ZM7.56932 5.20226C7.5472 5.19859 7.5178 5.21796 7.50337 5.24292C7.47843 5.28605 7.49076 5.29618 7.7954 5.47176C8.05685 5.62245 8.11763 5.6484 8.13207 5.62343C8.17407 5.55081 8.10631 5.48452 7.8536 5.34492C7.71815 5.26988 7.59145 5.20593 7.56932 5.20226Z" fill="white"/>
-              </g>
-              <defs>
-                <clipPath id="clip0_1907_2998">
-                  <rect width="32" height="25" fill="white"/>
-                </clipPath>
-              </defs>
-            </svg>
-          </div>
-          <div class="text">
-            <strong>125$</strong>
-            <span>Инвентарь</span>
-          </div>
-
-          <div class="select-button">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
-        <div class="panel-value">
-          <span>M4A4 | Asiimov</span>
-
-          <div class="icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M11.9999 10L15.9999 14M15.9999 10L11.9999 14M19.9999 6C20.2651 6 20.5195 6.10536 20.707 6.29289C20.8945 6.48043 20.9999 6.73478 20.9999 7V17C20.9999 17.2652 20.8945 17.5196 20.707 17.7071C20.5195 17.8946 20.2651 18 19.9999 18H8.99989L3.99989 13C3.75391 12.725 3.61792 12.369 3.61792 12C3.61792 11.631 3.75391 11.275 3.99989 11L8.99989 6H19.9999Z" stroke="#576CB0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-        </div>
+        <PanelMethod />
+        <BetValue />
       </div>
       <div class="prices">
         <label for="">
@@ -59,35 +49,144 @@
           <div class="price-item">3 x</div>
         </div>
       </div>
-
       <div class="withdraw">
         <label for="">Авто-вывод</label>
 
         <div class="withdraw-body">
-          <input :class="{'disabled': !$root.isAuth}" :disabled="!$root.isAuth" :readonly="!$root.isAuth" type="number" placeholder="1.1">
-          <button v-if="$root.isAuth" class="action">
-            Начать $ 120,77
+          <input :class="{'disabled': !$root.isAuth}" :disabled="!$root.isAuth || isDisabledBet" :readonly="!$root.isAuth" type="number" placeholder="1.1">
+          <button v-if="$root.isAuth" class="action" :disabled="isDisabledBet">
+            <template v-if="crash.isStarted() || crash.isFinished()">
+              Игра идет...
+            </template>
+            <template v-else>
+              Начать $ 120,77
+            </template>
           </button>
           <a :href="LOGIN_URL" v-else class="action unauthorization">
             Авторизуйтесь
           </a>
         </div>
       </div>
-
     </div>
   </div>
 </template>
+<script>
+import {mapGetters} from "vuex";
+
+export default {
+  computed: {
+    ...mapGetters({
+      crash: 'crash/crash'
+    }),
+    isDisabledBet () {
+      return this.crash.isStarted() || this.crash.isFinished();
+    }
+  },
+  methods: {
+    next () {
+      const slider = this.$refs.agile
+      slider.goToNext()
+    },
+    prev () {
+      const slider = this.$refs.agile
+      slider.goToPrev()
+    }
+  }
+}
+</script>
 <style scoped lang="scss">
+::v-deep {
+  .agile .agile__slides {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
 .crash-control {
-  padding-bottom: 44px;
+  padding-bottom: 14px;
   display: flex;
   padding-right: 13px;
   overflow: hidden;
+  @media (max-width: 768px) {
+    padding-right: 0;
+    padding-bottom: 8px;
+  }
+  .slider-wrapper {
+    width: 550px;
+    margin: 0 auto;
+    user-select: none;
+    position: relative;
+    @media (max-width: 1500px) {
+      width: 400px;
+    }
+    .slider-navs {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      left: 0;
+      z-index: 3;
+      width: 100%;
+      .slider-nav {
+        width: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border-radius: 100%;
+        height: 32px;
+        background: rgba(69, 84, 137, 0.1);
+        &:hover {
+          opacity: 0.8;
+        }
+        &:focus-within {
+          opacity: 0.5;
+        }
+        transition: 0.2s;
+      }
+      .slider-nav + .slider-nav {
+        margin-left: 24px;
+      }
+    }
+    &::after {
+      left: 0;
+      top: 0;
+      width: 120px;
+      bottom: 0;
+      position: absolute;
+      content: "";
+      display: block;
+      z-index: 2;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(30,37,66,1) 0%, rgba(0,0,0,0) 72%);
+      @media (max-width: 1500px) {
+        width: 80px;
+      }
+    }
+    &::before {
+      right: 0;
+      transform: rotate(180deg);
+      top: 0;
+      z-index: 2;
+      width: 120px;
+      bottom: 0;
+      position: absolute;
+      content: "";
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(30,37,66,1) 0%, rgba(0,0,0,0) 72%);
+      @media (max-width: 1500px) {
+        width: 80px;
+      }
+    }
+  }
   .skin {
     flex-grow: 1;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    @media (max-width: 768px) {
+      display: none;
+    }
     .empty-skin {
       height: 180px;
       width: 240px;
@@ -101,70 +200,24 @@
   .panel {
     width: 388px;
     min-width: 388px;
+    @media (max-width: 768px) {
+      flex-grow: 1;
+    }
+    @media (max-width: 575px) {
+      width: 100%;
+      min-width: 100%;
+    }
     .panel-methods {
       display: flex;
       border-radius: 10px;
-      overflow: hidden;
-      .panel-method {
-        width: 50%;
-        display: flex;
-        background: #4E70E9;
-        padding: 7px 16px;
-        align-items: center;
-        .icon {
-          margin-right: 12px;
-        }
-        .text {
-          strong, span {
-            display: block;
-          }
-          strong {
-            font-weight: 700;
-            font-size: 14px;
-            line-height: 20px;
-          }
-          span {
-            font-weight: 600;
-            font-size: 10px;
-            line-height: 15px;
-          }
-        }
-        .select-button {
-          transition: 0.2s;
-          margin-left: auto;
-          cursor: pointer;
-          &:hover {
-            opacity: 0.8;
-          }
-        }
-      }
-      .panel-value {
-        width: 50%;
-        background: rgba(78, 112, 233, 0.1);
-        padding: 13px 16px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        span {
-          font-weight: 600;
-          font-size: 10px;
-          line-height: 15px;
-          color: #576CB0;
-        }
-        .icon {
-          display: flex;
-          align-items: center;
-          transition: 0.2s;
-          cursor: pointer;
-          &:hover {
-            opacity: 0.8;
-          }
-        }
-      }
+
     }
     .prices {
       width: 100%;
       margin-top: 25px;
+      @media (max-width: 768px) {
+        margin-top: 16px;
+      }
       label {
         display: flex;
         align-items: center;
@@ -182,6 +235,9 @@
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         grid-gap: 12px;
+        @media (max-width: 600px) {
+          grid-gap: 10px;
+        }
         .price-item {
           border-radius: 16px;
           background: rgba(78, 112, 233, 0.1);
@@ -204,6 +260,9 @@
     }
     .withdraw {
       margin-top: 24px;
+      @media (max-width: 600px) {
+        margin-top: 16px;
+      }
       label {
         display: block;
         width: 100%;
@@ -215,6 +274,9 @@
       }
       .withdraw-body {
         display: flex;
+        @media (max-width: 600px) {
+          flex-wrap: wrap;
+        }
         input {
           border: 1px solid rgba(69, 84, 137, 0.1);
           border-radius: 8px;
@@ -224,7 +286,11 @@
           margin-right: 23px;
           height: 50px;
           padding: 0 16px;
-
+          @media (max-width: 600px) {
+            width: 100%;
+            min-width: 100%;
+            margin-bottom: 16px;
+          }
           &:not(.disabled) {
             &::placeholder {
               color: #576CB0;
@@ -259,6 +325,11 @@
           &.unauthorization {
             background: #4E70E9;
           }
+
+          @media (max-width: 600px) {
+            width: 100%;
+            height: 50px;
+          }
         }
       }
       margin-bottom: 8px;
@@ -268,4 +339,7 @@
 </style>
 <script setup>
 import {LOGIN_URL} from "@/definitions/urls";
+import PanelMethod from "@/components/games/crash/bet/PanelMethod.vue";
+import BetValue from "@/components/games/crash/bet/BetValue.vue";
+import BetSkins from "@/components/games/crash/bet/BetSkins.vue";
 </script>

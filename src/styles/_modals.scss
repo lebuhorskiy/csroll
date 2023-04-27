@@ -2,6 +2,21 @@
   background: #232C4B;
   border-radius: 16px;
   position: relative;
+  max-height: calc(100dvh - 50px);
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 768px) {
+    padding-right: 10px !important;
+    padding-left: 16px !important;
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+  }
+  .modal-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-top: 16px;
+    padding-right: 15px;
+  }
   .close {
     position: absolute;
     right: 24px;

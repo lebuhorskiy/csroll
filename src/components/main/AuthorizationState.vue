@@ -13,7 +13,7 @@
       </div>
       <div class="information">
         <span>{{ $root.user.nickname }}</span>
-        <strong class="balance">$ {{ parseFloat($root.user.balanceUsd).toFixed(2) }}</strong>
+        <strong class="balance">{{ $root.currency.symbol }} {{ convertRate(parseFloat($root.user.balanceUsd).toFixed(2)) }}</strong>
       </div>
       
       <button class="logout" @click.prevent.stop="logOut">
@@ -26,9 +26,14 @@
   </div>
 </template>
 <script>
-import {mapActions} from "vuex";
+import {mapActions, mapGetters} from "vuex";
 
 export default {
+  computed: {
+    ...mapGetters({
+      convertRate: 'config/convertRate'
+    })
+  },
   methods: {
     ...mapActions({
       logOut: 'user/logOut'
@@ -40,6 +45,14 @@ export default {
 .authorization-state {
   align-items: center;
   display: flex;
+  .notification-wrapper {
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+  @media (max-width: 1024px) {
+    position: relative;
+  }
   .deposit {
     width: 40px;
     height: 40px;
@@ -51,6 +64,10 @@ export default {
     justify-content: center;
     cursor: pointer;
     margin: 0 32px;
+    @media (max-width: 1024px) {
+      order: 1;
+
+    }
     &:hover {
       opacity: 0.7;
     }
@@ -59,6 +76,9 @@ export default {
     }
   }
   .user {
+    @media (max-width: 1024px) {
+      order: 0;
+    }
     display: flex;
     align-items: center;
     .avatar {
@@ -112,6 +132,11 @@ export default {
           stroke: #fff;
         }
       }
+    }
+    @media (max-width: 1024px) {
+      order: 2;
+      position: absolute;
+      right: 5px;
     }
   }
 }

@@ -1,7 +1,8 @@
 <template>
   <div class="wheel-content">
-    <HeaderTop />
+    <HeaderTop v-if="$root.width > 1200" />
     <WheelStatistics />
+    <MobileBets v-if="$root.width < 600" />
     <WheelBets />
   </div>
 </template>
@@ -9,6 +10,7 @@
 import HeaderTop from "@/components/main/HeaderTop.vue";
 import WheelStatistics from "@/components/games/wheel/WheelStatistics.vue";
 import WheelBets from "@/components/games/wheel/WheelBets.vue";
+import MobileBets from "@/components/games/wheel/MobileBets.vue";
 </script>
 <style scoped lang="scss">
 .wheel-content {
@@ -17,5 +19,8 @@ import WheelBets from "@/components/games/wheel/WheelBets.vue";
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  @media (max-width: 600px) {
+    padding-top: 4px;
+  }
 }
 </style>

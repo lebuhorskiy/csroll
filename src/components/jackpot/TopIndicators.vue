@@ -36,18 +36,40 @@
 .top-indicators {
   display: flex;
   overflow: hidden;
+  @media (max-width: 900px) {
+    flex-wrap: wrap;
+  }
   .game-info {
     flex-grow: 1;
+    width: 100%;
     overflow: hidden;
+    @media (max-width: 900px) {
+      margin-bottom: 16px;
+    }
   }
   .game-indicator {
     width: 277px;
     min-width: 277px;
     background: rgba(69, 84, 137, 0.1);
     border-radius: 16px;
+    @media (max-width: 1600px) {
+      width: 240px;
+      min-width: 240px;
+    }
+    @media (max-width: 900px) {
+      min-width: auto;
+      width: calc(50% - 8px);
+    }
+    //@media (max-width: 575px) {
+    //  width: 100%;
+    //}
   }
   .game-indicator + .game-indicator {
     margin-left: 16px;
+    @media (max-width: 575px) {
+      //margin-left: 0;
+      //margin-top: 0;
+    }
   }
 }
 </style>

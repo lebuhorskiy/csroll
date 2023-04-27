@@ -1,15 +1,15 @@
 <template>
   <div class="support-links">
-    <button>Пользовательское соглашение</button>
+    <router-link to="/support/terms-and-conditions">Пользовательское соглашение</router-link>
     <button>Контакты</button>
-    <button>Privacy Policy</button>
+    <router-link to="/support/privacy-policy">Privacy Policy</router-link>
   </div>
 </template>
 <style scoped lang="scss">
 .support-links {
   display: flex;
   flex-wrap: wrap;
-  button {
+  button,a {
     background: rgba(69, 84, 137, 0.1);
     background: #455489;
     border-radius: 8px;
@@ -21,6 +21,7 @@
     flex: 1;
     cursor: pointer;
     transition: 0.2s;
+    text-align: center;
     &:hover {
       opacity: 0.8;
     }

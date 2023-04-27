@@ -64,8 +64,28 @@ export default {
     }
   },
   computed: {
+    limit () {
+      const width = this.$root.width
+      if (width < 390) {
+        return 1;
+      }
+      if (width < 575) {
+        return 2;
+      }
+
+      if (width < 1530) {
+        return 1;
+      }
+
+      if (width < 1630) {
+        return 2;
+      }
+
+
+      return 3
+    },
     getSkins () {
-      const limit = 3
+      const limit = this.limit
       const skins = []
       for (const item in this.skins) {
         if (skins.length < limit) {
@@ -129,6 +149,7 @@ export default {
     }
   }
   .bet-skins {
+    margin-right: 15px;
     display: flex;
     .bet-skin + .bet-skin {
       margin-left: 12px;
@@ -170,6 +191,46 @@ export default {
       font-size: 14px;
       line-height: 21px;
       margin-left: 5px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    flex-wrap: wrap;
+    padding: 16px;
+    justify-content: space-between;
+    .billets, .chance {
+      width: 50%;
+      margin-right: 0;
+      margin-top: 15px;
+    }
+    .bet-user {
+      order: 0;
+    }
+    .bet-skins {
+      order: 1;
+      margin-right: 0;
+    }
+    .chance {
+      text-align: right;
+      justify-content: flex-end;
+      order: 4;
+    }
+    .billets {
+      order: 3;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 575px) {
+    .bet-skins {
+      width: 100%;
+      margin-top: 16px;
+    }
+    .billets {
+      width: 60%;
+    }
+    .chance {
+      width: 40%;
     }
   }
 

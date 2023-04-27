@@ -18,9 +18,9 @@
       <CircleProgress total="100" completed="25" />
     </div>
 
-    <button>
+    <router-link to="/referral">
       Подробнее
-    </button>
+    </router-link>
   </div>
 </template>
 <style scoped lang="scss">
@@ -33,10 +33,20 @@
   justify-content: space-between;
   padding: 24px;
   background: rgba(69, 84, 137, 0.1);
+  @media (max-width: 1600px) {
+    width: 260px;
+    min-width: 260px;
+  }
+  @media (max-width: 600px) {
+    padding: 16px;
+  }
   .head {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media (max-width: 600px) {
+      margin-bottom: 16px;
+    }
     strong {
       font-weight: 600;
       font-size: 14px;
@@ -54,16 +64,20 @@
       color: #576CB0;
     }
   }
-  button {
+  a {
     background: rgba(78, 112, 233, 0.1);
     border: 1px solid #4E70E9;
     font-weight: 600;
+    text-align: center;
     font-size: 14px;
     line-height: 100%;
     border-radius: 8px;
     cursor: pointer;
     transition: 0.2s;
     padding: 17px 0;
+    @media (max-width: 600px) {
+      margin-top: 16px;
+    }
     &:hover {
       opacity: 0.8;
     }

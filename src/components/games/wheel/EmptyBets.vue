@@ -22,6 +22,16 @@
     font-size: 18px;
     line-height: 27px;
     color: #576CB0;
+
+  }
+  @media (max-width: 620px) {
+    img {
+      width: 40px;
+    }
+    span {
+      margin-top: 10px;
+      font-size: 14px;
+    }
   }
 }
 </style>

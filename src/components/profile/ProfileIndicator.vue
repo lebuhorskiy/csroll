@@ -3,13 +3,20 @@
     <div class="icon">
       <img :src="src" alt="">
     </div>
-    <strong>4 790</strong>
-    <span>Сыграно игр</span>
+    <strong>{{ value }}</strong>
+    <span>{{ name }}</span>
   </div>
 </template>
 <script>
 export default {
   props: {
+    name: {
+      type: String,
+      default: ''
+    },
+    value: {
+      default: 0
+    },
     src: {
       type: String
     }
@@ -21,10 +28,42 @@ export default {
   border-radius: 10px;
   padding: 16px 0;
   background: rgba(69, 84, 137, 0.1);
+  @media (max-width: 1600px) {
+    position: relative;
+    padding-left: 40px;
+  }
+  @media (max-width: 1400px) {
+    padding-left: 0;
+  }
   .icon {
     margin-bottom: 11px;
     display: flex;
     justify-content: center;
+    @media (max-width: 1600px) {
+      position: absolute;
+      left: 20px;
+      top: calc(50% - 20px);
+      margin-bottom: 0;
+    }
+    @media (max-width: 1400px) {
+      width: 25px;
+      height: 25px;
+      display: none;
+      top: calc(50% - 12.5px);
+      svg {
+        width: 25px;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      display: block;
+      position: static;
+      width: 40px;
+      height: 40px;
+      margin: 0 auto;
+      margin-bottom: 10px;
+      top: 0;
+    }
   }
   strong {
     font-weight: 600;
@@ -34,6 +73,10 @@ export default {
     text-align: center;
     display: block;
     width: 100%;
+    @media (max-width: 1400px) {
+      font-size: 16px;
+      margin-bottom: 0;
+    }
   }
   span {
     width: 100%;

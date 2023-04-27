@@ -18,6 +18,15 @@
   padding-right: 10px;
   flex-shrink: 100;
   overflow-y: auto;
+  @media (max-width: 1024px) {
+    height: 500px;
+    min-height: 500px;
+    flex-grow: unset;
+    flex-shrink: unset;
+  }
+  @media (max-width: 600px) {
+    padding-right: 5px;
+  }
   .bet + .bet {
     margin-top: 12px;
   }

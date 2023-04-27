@@ -2,7 +2,7 @@
   <div class="chat">
     <ChatHead />
 
-    <div class="gift" @click="setSkinopadModal(true)">
+    <div class="gift" @click.prevent.stop="setSkinopadModal(true)">
       <span>Скинопад</span>
       <div class="timer">23:59:59</div>
     </div>
@@ -100,6 +100,16 @@ export default {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  z-index: 3;
+  @media (max-width: 1024px) {
+    height: calc(100dvh - 74px);
+    z-index: 1000;
+    top: 0;
+  }
+  @media (max-width: 600px) {
+    width: 100%;
+    min-width: 100%;
+  }
   .gift {
     justify-content: space-between;
     background: #4E70E9;
@@ -127,7 +137,7 @@ export default {
     }
   }
   .chat-body {
-    padding-left: 20px;
+    padding-left: 15px;
     margin-top: 16px;
     flex-grow: 1;
     overflow: hidden;

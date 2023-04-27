@@ -12,7 +12,7 @@ export default {
     return {
       skins: [
         {
-          status: 'process',
+          status: 'timer',
           id: 0,
           color: 'yellow'
         },
@@ -42,7 +42,7 @@ export default {
           color: 'gray'
         },
         {
-          status: 'process',
+          status: 'timer',
           id: 6,
           color: 'yellow'
         },
@@ -121,10 +121,28 @@ export default {
       grid-template-columns: repeat(6, 1fr);
       grid-gap: 16px;
       padding-right: 10px;
+      @media (max-width: 1200px) {
+        grid-template-columns: repeat(4, 1fr);
+        height: 600px;
+        padding-right: 5px;
+      }
+      @media (max-width: 900px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      @media (max-width: 700px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      @media (max-width: 575px) {
+        grid-gap: 12px;
+        grid-template-columns: repeat(2, 1fr);
+      }
       &::-webkit-scrollbar {
         width: 8px;
         background: rgba(69, 84, 137, 0.05);
         border-radius: 5px;
+        @media (max-width: 600px) {
+          width: 4px;
+        }
       }
       &::-webkit-scrollbar-thumb {
         background: rgba(69, 84, 137, 0.25);

@@ -14,7 +14,12 @@
           </svg>
         </button>
       </div>
-      <div class="status" v-if="['withdraw', 'sell'].includes(skin.status)">
+      <div class="buttons" v-if="skin.status === 'timer'">
+        <button class="withdraw active def">
+          <UiTimer :end-time="getFeatureTime()" />
+        </button>
+      </div>
+      <div class="status" v-if="['withdraw', 'sell', 'timer'].includes(skin.status)">
         <template v-if="skin.status === 'withdraw'">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5 12L10 17L20 7" stroke="#FF5C30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -31,13 +36,20 @@
 </template>
 <script>
 import BaseSkin from "@/components/main/BaseSkin.vue";
+import UiTimer from "@/components/UI/UiTimer.vue";
 export default {
   props: {
     skin: {
       type: Object
     }
   },
+  methods: {
+    getFeatureTime () {
+      return (new Date()).getTime() + 2000 * 150
+    }
+  },
   components: {
+    UiTimer,
     BaseSkin
   }
 }
@@ -47,7 +59,7 @@ export default {
   position: relative;
   ::v-deep {
     .skin {
-      height: 184px;
+      height: 174px;
       .image {
         height: 90px;
       }
@@ -58,6 +70,10 @@ export default {
     bottom: 16px;
     z-index: 2;
     right: 16px;
+    @media (max-width: 768px) {
+      right: 10px;
+      bottom: 10px;
+    }
     .buttons {
       button {
         cursor: pointer;
@@ -75,6 +91,13 @@ export default {
         &:hover {
           opacity: 1;
         }
+        @media (max-width: 768px) {
+          width: 30px;
+          height: 30px;
+          svg {
+            width: 15px;
+          }
+        }
       }
       .withdraw {
         width: 40px;
@@ -85,13 +108,34 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
-        &:hover {
+        @media (max-width: 768px) {
+          width: 30px;
+          height: 30px;
+          svg {
+            width: 15px;
+          }
+        }
+        &:hover, &.active {
           opacity: 1;
+        }
+        &.def {
+          cursor: default;
+          width: 40px;
+          @media (max-width: 768px) {
+            ::v-deep {
+              span {
+                font-size: 10px;
+              }
+            }
+          }
         }
         transition: 0.2s;
       }
       button + button {
         margin-top: 16px;
+        @media (max-width: 768px) {
+          margin-top: 10px;
+        }
       }
     }
   }

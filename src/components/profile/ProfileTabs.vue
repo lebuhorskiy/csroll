@@ -7,7 +7,6 @@
 
       <span>Инвентарь</span>
     </div>
-
     <div class="tab fill" @click.prevent.stop="setTab('crash')" :class="{'active': selectTab === 'crash'}">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clip-path="url(#clip0_646_2196)">
@@ -80,6 +79,13 @@ export default {
   align-items: center;
   margin-bottom: 24px;
   margin-top: 32px;
+  @media (max-width: 768px) {
+    padding-bottom: 12px;
+    overflow-x: auto;
+    margin-top: 16px;
+    margin-bottom: 10px;
+
+  }
   .tab {
     display: flex;
     cursor: pointer;

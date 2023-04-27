@@ -27,6 +27,13 @@
   flex-direction: column-reverse;
   align-items: center;
   overflow-y: auto;
+  @media (max-width: 1200px) {
+    right: 20px;
+    width: 40px;
+  }
+  @media (max-width: 768px) {
+    right: 0px;
+  }
   &::-webkit-scrollbar {
     display: none;
   }
@@ -38,6 +45,9 @@
     height: 24px;
     min-height: 24px;
     margin-bottom: 8px;
+    @media (max-width: 1200px) {
+      width: 20px;
+    }
     &:hover {
       opacity: 0.8;
     }

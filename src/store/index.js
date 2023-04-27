@@ -6,6 +6,8 @@ import config from "@/store/modules/config";
 import profile from "@/store/modules/profile";
 import user from "@/store/modules/user";
 import shop from "@/store/modules/shop";
+import crash from "@/store/modules/crash";
+import inventory from "@/store/modules/inventory";
 export default new Vuex.Store({
   state: {
   },
@@ -16,9 +18,11 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
+    inventory,
     config,
     profile,
     user,
-    shop
+    shop,
+    crash
   }
 })

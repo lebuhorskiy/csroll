@@ -22,7 +22,7 @@
               BroTwiceInDa
             </div>
             <div class="skins">
-              BroTwiceInDa
+              15 скинов
             </div>
             <div class="id">#151563541</div>
             <div class="time">
@@ -30,8 +30,8 @@
             </div>
           </div>
           <div class="skins">
-            <JackpotBetSkin v-for="skin in skins" :key="skin.id" :skin="skin" />
-            <MoreSkinsBlock :more="skins.length - getSkins.length" v-if="skins.length > 4"></MoreSkinsBlock>
+            <JackpotBetSkin v-for="skin in getSkins" :key="skin.id" :skin="skin" />
+            <MoreSkinsBlock :more="skins.length - getSkins.length" v-if="skins.length > limit"></MoreSkinsBlock>
           </div>
         </div>
       </router-link>
@@ -53,7 +53,7 @@
               BroTwiceInDa
             </div>
             <div class="skins">
-              BroTwiceInDa
+              15 скинов
             </div>
             <div class="id">#151563541</div>
             <div class="time">
@@ -61,8 +61,8 @@
             </div>
           </div>
           <div class="skins">
-            <JackpotBetSkin v-for="skin in skins" :key="skin.id" :skin="skin" />
-            <MoreSkinsBlock :more="skins.length - getSkins.length" v-if="skins.length > 4"></MoreSkinsBlock>
+            <JackpotBetSkin v-for="skin in getSkins" :key="skin.id" :skin="skin" />
+            <MoreSkinsBlock :more="skins.length - getSkins.length" v-if="skins.length > limit"></MoreSkinsBlock>
           </div>
         </div>
       </router-link>
@@ -84,7 +84,7 @@
               BroTwiceInDa
             </div>
             <div class="skins">
-              BroTwiceInDa
+              15 скинов
             </div>
             <div class="id">#151563541</div>
             <div class="time">
@@ -92,8 +92,8 @@
             </div>
           </div>
           <div class="skins">
-            <JackpotBetSkin v-for="skin in skins" :key="skin.id" :skin="skin" />
-            <MoreSkinsBlock :more="skins.length - getSkins.length" v-if="skins.length > 4"></MoreSkinsBlock>
+            <JackpotBetSkin v-for="skin in getSkins" :key="skin.id" :skin="skin" />
+            <MoreSkinsBlock :more="skins.length - getSkins.length" v-if="skins.length > limit"></MoreSkinsBlock>
           </div>
         </div>
       </router-link>
@@ -115,7 +115,7 @@
               BroTwiceInDa
             </div>
             <div class="skins">
-              BroTwiceInDa
+              15 скинов
             </div>
             <div class="id">#151563541</div>
             <div class="time">
@@ -123,8 +123,8 @@
             </div>
           </div>
           <div class="skins">
-            <JackpotBetSkin v-for="skin in skins" :key="skin.id" :skin="skin" />
-            <MoreSkinsBlock :more="skins.length - getSkins.length" v-if="skins.length > 4"></MoreSkinsBlock>
+            <JackpotBetSkin v-for="skin in getSkins" :key="skin.id" :skin="skin" />
+            <MoreSkinsBlock :more="skins.length - getSkins.length" v-if="skins.length > limit"></MoreSkinsBlock>
           </div>
         </div>
       </router-link>
@@ -146,7 +146,7 @@
               BroTwiceInDa
             </div>
             <div class="skins">
-              BroTwiceInDa
+              15 скинов
             </div>
             <div class="id">#151563541</div>
             <div class="time">
@@ -154,8 +154,8 @@
             </div>
           </div>
           <div class="skins">
-            <JackpotBetSkin v-for="skin in skins" :key="skin.id" :skin="skin" />
-            <MoreSkinsBlock :more="skins.length - getSkins.length" v-if="skins.length > 4"></MoreSkinsBlock>
+            <JackpotBetSkin v-for="skin in getSkins" :key="skin.id" :skin="skin" />
+            <MoreSkinsBlock :more="skins.length - getSkins.length" v-if="skins.length > limit"></MoreSkinsBlock>
           </div>
         </div>
       </router-link>
@@ -177,7 +177,7 @@
               BroTwiceInDa
             </div>
             <div class="skins">
-              BroTwiceInDa
+              15 скинов
             </div>
             <div class="id">#151563541</div>
             <div class="time">
@@ -185,8 +185,8 @@
             </div>
           </div>
           <div class="skins">
-            <JackpotBetSkin v-for="skin in skins" :key="skin.id" :skin="skin" />
-            <MoreSkinsBlock :more="skins.length - getSkins.length" v-if="skins.length > 4"></MoreSkinsBlock>
+            <JackpotBetSkin v-for="skin in getSkins" :key="skin.id" :skin="skin" />
+            <MoreSkinsBlock :more="skins.length - getSkins.length" v-if="skins.length > limit"></MoreSkinsBlock>
           </div>
         </div>
       </router-link>
@@ -208,7 +208,7 @@
               BroTwiceInDa
             </div>
             <div class="skins">
-              BroTwiceInDa
+              15 скинов
             </div>
             <div class="id">#151563541</div>
             <div class="time">
@@ -216,8 +216,8 @@
             </div>
           </div>
           <div class="skins">
-            <JackpotBetSkin v-for="skin in skins" :key="skin.id" :skin="skin" />
-            <MoreSkinsBlock :more="skins.length - getSkins.length" v-if="skins.length > 4"></MoreSkinsBlock>
+            <JackpotBetSkin v-for="skin in getSkins" :key="skin.id" :skin="skin" />
+            <MoreSkinsBlock :more="skins.length - getSkins.length" v-if="skins.length > limit"></MoreSkinsBlock>
           </div>
         </div>
       </router-link>
@@ -239,7 +239,7 @@
               BroTwiceInDa
             </div>
             <div class="skins">
-              BroTwiceInDa
+              15 скинов
             </div>
             <div class="id">#151563541</div>
             <div class="time">
@@ -247,42 +247,12 @@
             </div>
           </div>
           <div class="skins">
-            <JackpotBetSkin v-for="skin in skins" :key="skin.id" :skin="skin" />
-            <MoreSkinsBlock :more="skins.length - getSkins.length" v-if="skins.length > 4"></MoreSkinsBlock>
+            <JackpotBetSkin v-for="skin in getSkins" :key="skin.id" :skin="skin" />
+            <MoreSkinsBlock :more="skins.length - getSkins.length" v-if="skins.length > limit"></MoreSkinsBlock>
           </div>
         </div>
       </router-link>
-      <router-link to="/jackpot/histories/1" class="game">
-        <div class="winner">
-          <div class="winner-avatar">
-            <img src="@/assets/images/av1.png" alt="">
-          </div>
-          <div class="winner-prize">
-            $ 54.87
-          </div>
-          <div class="winner-percent">
-            15.23%
-          </div>
-        </div>
-        <div class="game-info">
-          <div class="stats">
-            <div class="nickname">
-              BroTwiceInDa
-            </div>
-            <div class="skins">
-              BroTwiceInDa
-            </div>
-            <div class="id">#151563541</div>
-            <div class="time">
-              23:33
-            </div>
-          </div>
-          <div class="skins">
-            <JackpotBetSkin v-for="skin in skins" :key="skin.id" :skin="skin" />
-            <MoreSkinsBlock :more="skins.length - getSkins.length" v-if="skins.length > 4"></MoreSkinsBlock>
-          </div>
-        </div>
-      </router-link>
+
     </div>
 
   </div>
@@ -330,8 +300,28 @@ export default {
     }
   },
   computed: {
+    limit () {
+      const width = this.$root.width;
+      if (width < 375) {
+        return 1;
+      }
+      if (width < 575) {
+        return 2;
+      }
+      if (width < 650) {
+        return 3;
+      }
+      if (width < 768) {
+        return 3;
+      }
+      if (width < 992) {
+        return 4;
+      }
+
+      return 6;
+    },
     getSkins () {
-      const limit = 3
+      const limit = this.limit
       const skins = []
       for (const item in this.skins) {
         if (skins.length < limit) {
@@ -363,6 +353,9 @@ export default {
       border-radius: 16px;
       background: rgba(69, 84, 137, 0.1);
       overflow: hidden;
+      @media (max-width: 768px) {
+        flex-wrap: wrap;
+      }
       &:hover {
         opacity: 0.8;
       }
@@ -373,6 +366,10 @@ export default {
         background: rgba(69, 84, 137, 0.1);
 
         min-width: 128px;
+        @media (max-width: 768px) {
+          width: 100%;
+          min-width: 100%;
+        }
         .winner-avatar {
           width: 64px;
           height: 64px;
@@ -410,20 +407,40 @@ export default {
         flex-direction: column;
         justify-content: space-between;
         flex-grow: 1;
+        @media (max-width: 768px) {
+          padding: 16px;
+        }
         .stats {
           display: flex;
           align-items: center;
+          @media (max-width: 768px) {
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+          }
           .nickname {
             font-weight: 600;
             font-size: 14px;
             line-height: 21px;
             margin-right: 16px;
+            @media (max-width: 768px) {
+              margin-right: 0;
+            }
           }
           .skins {
             font-weight: 600;
             font-size: 14px;
             line-height: 21px;
             color: #97A7DB;
+          }
+          @media (max-width: 768px) {
+            .nickname,.skins {
+              width: 50%;
+            }
+            .skins {
+              text-align: right;
+              display: flex;
+              justify-content: flex-end;
+            }
           }
           .id {
             margin-left: auto;
@@ -432,6 +449,10 @@ export default {
             font-size: 14px;
             line-height: 21px;
             color: #97A7DB;
+            @media (max-width: 768px) {
+              margin-left: 0;
+              flex-grow: 1;
+            }
           }
           .time {
             font-weight: 600;

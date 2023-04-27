@@ -36,6 +36,9 @@ export default {
 <style scoped lang="scss">
 .game-indicator {
   padding: 24px 32px;
+  @media (max-width: 1600px) {
+    padding: 16px;
+  }
   .game-indicator_title {
     display: flex;
     align-items: center;
@@ -43,7 +46,19 @@ export default {
     font-size: 16px;
     line-height: 24px;
     svg {
-      margin-right: 12px;
+      margin-right: 10px;
+    }
+    @media (max-width: 575px) {
+      font-size: 14px;
+      white-space: nowrap;
+      line-height: 18px;
+      svg {
+        margin-right: 8px;
+        width: 20px;
+      }
+    }
+    @media (max-width: 450px) {
+      font-size: 12px;
     }
   }
   .game-indicator_user {
@@ -53,8 +68,15 @@ export default {
     .avatar {
       width: 50px;
       height: 50px;
+      min-width: 50px;
       border-radius: 100%;
       overflow: hidden;
+      @media (max-width: 575px) {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+      }
+
       img {
         width: 100%;
         height: 100%;
@@ -62,6 +84,12 @@ export default {
       }
 
       margin-right: 16px;
+      @media (max-width: 450px) {
+        width: 25px;
+        height: 25px;
+        min-width: 25px;
+        margin-right: 10px;
+      }
     }
     .information {
       strong,span {
@@ -77,11 +105,26 @@ export default {
         font-size: 16px;
         line-height: 24px;
         color: #EAC159;
+        @media (max-width: 575px) {
+          font-size: 14px;
+          margin-bottom: 0;
+          line-height: 20px;
+        }
+        @media (max-width: 450px) {
+          font-size: 12px;
+        }
       }
       span {
         font-weight: 600;
         font-size: 14px;
         line-height: 21px;
+        @media (max-width: 575px) {
+          font-size: 12px;
+          line-height: 16px;
+        }
+        @media (max-width: 450px) {
+          font-size: 10px;
+        }
       }
     }
   }
@@ -95,6 +138,10 @@ export default {
     font-size: 14px;
     line-height: 21px;
     color: #576CB0;
+    @media (max-width: 575px) {
+      font-size: 12px;
+      padding: 10px 0;
+    }
   }
 }
 </style>

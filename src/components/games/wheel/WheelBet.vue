@@ -1,6 +1,6 @@
 <template>
-  <div class="wheel-bet" :class="[color]">
-    <div class="wheel-bet_head">
+  <div class="wheel-bet" :class="[color, {'is-win': isWin}]">
+    <div class="wheel-bet_head" :class="{'active': selectTab}" @click="selectTab = !selectTab">
       <strong>2x</strong>
       <div class="indicators">
         <div class="indicator">
@@ -23,36 +23,52 @@
         </div>
       </div>
     </div>
-
-    <div class="wheel-bets">
-<!--      <EmptyBets />-->
-      <BetInstance />
-      <BetInstance />
-      <BetInstance />
-      <BetInstance />
-      <BetInstance />
-      <BetInstance />
-      <BetInstance />
-      <BetInstance />
-      <BetInstance />
-      <BetInstance />
-      <BetInstance />
-      <BetInstance />
-      <BetInstance />
-    </div>
+      <div v-if="empty" class="wheel-bets empty" :class="{'active': selectTab}">
+        <EmptyBets />
+      </div>
+      <div v-else class="wheel-bets" :class="{'active': selectTab}">
+        <BetInstance :color="color" :is-win="isWin" />
+        <BetInstance :color="color" :is-win="isWin" />
+        <BetInstance :color="color" :is-win="isWin" />
+        <BetInstance :color="color" :is-win="isWin" />
+        <BetInstance :color="color" :is-win="isWin" />
+        <BetInstance :color="color" :is-win="isWin" />
+        <BetInstance :color="color" :is-win="isWin" />
+        <BetInstance :color="color" :is-win="isWin" />
+        <BetInstance :color="color" :is-win="isWin" />
+        <BetInstance :color="color" :is-win="isWin" />
+        <BetInstance :color="color" :is-win="isWin" />
+        <BetInstance :color="color" :is-win="isWin" />
+        <BetInstance :color="color" :is-win="isWin" />
+      </div>
   </div>
 </template>
 <script>
 // import EmptyBets from "@/components/games/wheel/EmptyBets.vue";
 
 import BetInstance from "@/components/games/wheel/BetInstance.vue";
+import EmptyBets from "@/components/games/wheel/EmptyBets.vue";
 
 export default {
+  data () {
+    return {
+      selectTab: false
+    }
+  },
   components: {
+    EmptyBets,
     BetInstance
     // EmptyBets
   },
   props: {
+    empty: {
+      type: Boolean,
+      default: false
+    },
+    isWin: {
+      type: Boolean,
+      default: false
+    },
     color: {
       type: String
     }
@@ -65,18 +81,32 @@ export default {
   display: flex;
   flex-direction: column;
   .wheel-bet_head {
-    padding: 16px 32px;
+    padding: 16px;
     display: flex;
     background: rgba(78, 112, 233, 0.2);
     align-items: center;
     border-radius: 16px;
+    @media (max-width: 600px) {
+      border: 2px solid transparent;
+    }
     justify-content: space-between;
+    @media (max-width: 600px) {
+      &.active {
+        border: 2px solid rgba(255,255,255, 0.3) !important;
+      }
+    }
+    @media (max-width: 600px) {
+      background: rgb(65 79 128 / 10%) !important;
+      padding: 14px;
+    }
     strong {
       font-weight: 700;
-      font-size: 24px;
+      font-size: 22px;
       line-height: 36px;
       color: #4E70E9;
-
+      @media (max-width: 620px) {
+        display: none;
+      }
     }
     .indicators {
       display: flex;
@@ -104,8 +134,23 @@ export default {
     padding-right: 4px;
     flex-direction: column;
     border-radius: 16px;
+    @media (max-width: 600px) {
+      display: none;
+      &.active {
+        display: flex;
+      }
+    }
+    @media (max-width: 1024px) {
+      height: 350px;
+      &.empty {
+        height: 110px;
+      }
+    }
+    @media (max-width: 600px) {
+      margin-top: 10px;
+    }
     &::-webkit-scrollbar {
-      width: 8px;
+      width: 4px;
       background: rgba(69, 84, 137, 0.05);
       border-radius: 5px;
     }
@@ -116,10 +161,12 @@ export default {
     flex-grow: 1;
     .bet-instance + .bet-instance {
       margin-top: 8px;
+      @media (max-width: 600px) {
+        margin-top: 4px;
+      }
     }
   }
 }
-
 .wheel-bet {
   &.pink {
     .wheel-bet_head {
@@ -173,6 +220,29 @@ export default {
           color: #EAC159;
         }
       }
+    }
+  }
+}
+
+.wheel-bet.is-win {
+    &.pink {
+      .wheel-bet_head {
+        background: rgba(164, 48, 255, 0.5) !important;
+      }
+    }
+    &.green {
+      .wheel-bet_head {
+        background: rgba(74, 186, 98, 0.5) !important;
+      }
+    }
+    &.yellow {
+      .wheel-bet_head {
+        background: rgba(234, 193, 89, 0.5) !important;
+      }
+    }
+  &.blue {
+    .wheel-bet_head {
+      background: rgba(78, 112, 233, 0.5) !important;
     }
   }
 }

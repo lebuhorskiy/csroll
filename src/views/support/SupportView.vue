@@ -2,7 +2,6 @@
   <div class="support-view">
     <HeaderTop />
     <SupportHeader />
-
     <div class="support-nav">
       <div class="support-nav_head">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -10,12 +9,7 @@
         </svg>
         Ответы на часто задаваемые вопросы
       </div>
-      <div class="support-nav_links">
-        <a href="">Пользовательское соглашение</a>
-        <a href="">Контакты</a>
-      </div>
     </div>
-
     <div class="support-content">
       <div class="support-panel">
         <div class="support-panel_tabs">
@@ -151,15 +145,27 @@ export default {
 .support-view {
   height: 100vh;
   display: flex;
+  @media (min-width: 1200px) {
+    min-height: 900px;
+  }
   flex-direction: column;
   overflow: hidden;
   padding: 15px 12px;
+  @media (max-width: 1024px) {
+    height: auto;
+  }
   .support-nav {
     display: flex;
     margin-top: 35px;
     margin-bottom: 24px;
     align-items: center;
     justify-content: space-between;
+    @media (max-width: 1024px) {
+      width: 100%;
+    }
+    @media (max-width: 600px) {
+      margin-top: 20px;
+    }
     .support-nav_head {
       display: flex;
       align-items: center;
@@ -169,6 +175,9 @@ export default {
       color: #576CB0;
       svg {
         margin-right: 8px;
+      }
+      @media (max-width: 600px) {
+        font-size: 14px;
       }
     }
     .support-nav_links {
@@ -190,11 +199,15 @@ export default {
         margin-left: 32px;
       }
     }
+
   }
   .support-content {
     flex-grow: 1;
     overflow: hidden;
     display: flex;
+    @media (max-width: 1024px) {
+      flex-wrap: wrap;
+    }
     .support-panel {
       width: 472px;
       min-width: 472px;
@@ -205,6 +218,13 @@ export default {
       padding: 24px;
       background: rgba(69, 84, 137, 0.1);
       border-radius: 16px;
+      @media (max-width: 1024px) {
+        width: 100%;
+        min-width: 100%;
+        margin-bottom: 16px;
+        margin-right: 0;
+        padding: 16px;
+      }
       .support-panel_tabs {
         border-radius: 16px;
         overflow: hidden;
@@ -226,6 +246,10 @@ export default {
           }
           &:hover:not(.active) {
             opacity: 0.8;
+          }
+          @media (max-width: 600px) {
+            padding: 18px 0;
+            font-size: 13px;
           }
         }
         .support-panel_tab + .support-panel_tab {
@@ -250,6 +274,9 @@ export default {
       .support-question_items {
         overflow-y: auto;
         padding-right: 10px;
+        @media (max-width: 1024px) {
+          padding-right: 0;
+        }
         &::-webkit-scrollbar {
           width: 8px;
           background: rgba(69, 84, 137, 0.1);

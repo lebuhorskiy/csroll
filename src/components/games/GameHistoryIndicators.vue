@@ -24,7 +24,7 @@
           </div>
         </div>
 
-        <button>
+        <button @click.prevent.stop="setShowCheck(true)">
           Проверить
         </button>
       </div>
@@ -64,6 +64,17 @@
     </div>
   </div>
 </template>
+<script>
+import {mapMutations} from "vuex";
+
+export default {
+  methods: {
+    ...mapMutations({
+      setShowCheck: 'config/setShowCheck'
+    })
+  }
+}
+</script>
 <style scoped lang="scss">
 .top-panel {
   margin-top: 22px;
@@ -85,6 +96,9 @@
 }
 .indicators {
   display: flex;
+  @media (max-width: 1200px) {
+    flex-wrap: wrap;
+  }
   .big-indicator {
     margin-right: 24px;
     flex-grow: 1;
@@ -94,21 +108,40 @@
     padding: 17px 24px;
     display: flex;
     align-items: center;
+    @media (max-width: 1200px) {
+      margin-bottom: 16px;
+      width: 100%;
+      flex-grow: unset;
+      margin-right: 0;
+    }
+    @media (max-width: 600px) {
+      flex-wrap: wrap;
+    }
     .icon {
       margin-right: 16px;
+      @media (max-width: 600px) {
+        margin: 0 auto;
+      }
     }
     .text {
+      display: flex;
+      padding-right: 15px;
+      overflow: hidden;
+      flex-direction: column;
+      flex-grow: 1;
       div {
-        display: flex;
         align-items: center;
-
         font-weight: 600;
         font-size: 14px;
+        text-overflow: ellipsis;
+        overflow: hidden;
         line-height: 24px;
         color: rgba(87, 108, 176, 1);
         strong {
           font-size: 14px;
+          overflow: hidden;
           line-height: 24px;
+          white-space: nowrap;
           margin-right: 5px;
           font-weight: 600;
           color: rgba(69, 84, 137, 1)
@@ -128,6 +161,10 @@
       &:hover {
         opacity: 0.8;
       }
+      @media (max-width: 600px) {
+        width: 100%;
+        margin-top: 16px;
+      }
     }
   }
   .indicator {
@@ -135,6 +172,7 @@
     background: rgba(69, 84, 137, 0.1);
     padding: 16px 20px;
     display: flex;
+
     .icon {
       display: flex;
       align-items: center;
@@ -162,9 +200,23 @@
         line-height: 24px;
       }
     }
+
+    @media (max-width: 1200px) {
+      width: calc(33.333% - 11px);
+    }
+    @media (max-width: 600px) {
+      width: 100%;
+    }
   }
   .indicator + .indicator {
     margin-left: 16px;
+    @media (max-width: 1200px) {
+      margin-left: 16px;
+    }
+    @media (max-width: 600px) {
+      margin-left: 0;
+      margin-top: 16px;
+    }
   }
 }
 </style>

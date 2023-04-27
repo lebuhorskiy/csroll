@@ -14,10 +14,19 @@
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  @media (max-width: 1200px) {
+    margin: 20px 0;
+  }
   .image {
     margin-bottom: 40px;
     img {
       filter: drop-shadow(0px 4px 10px rgba(160, 52, 52, 1));
+      @media (max-width: 768px) {
+        width: 50px;
+      }
+    }
+    @media (max-width: 768px) {
+      margin-bottom: 20px;
     }
   }
   align-items: center;

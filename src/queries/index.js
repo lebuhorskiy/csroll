@@ -9,7 +9,7 @@ export const GET_MY_PROFILE = gql`
           balanceUsd
           flags
           level
-          statistic {
+          getStatistic {
             biggestMultiplier
             totalCountBets
             totalCountWins
@@ -35,6 +35,97 @@ export const GET_SHOP_ITEMS = gql`
                 priceUsd
                 type
             }
+        }
+    }
+`
+
+export const GET_RATES = gql`
+    query getRates {
+        getRates {
+            symbol
+            currency
+            rate
+        }
+    }
+`
+
+
+//// crash
+
+export const GET_CRASH = gql`
+    query getCrash {
+        getCrash {
+            multiplier
+            startedAt
+            nextAt
+            hash
+            salt
+            status
+            currentDate
+            bets {
+                type
+                multiplier
+                itemsTotal
+                winSumUsd
+                status
+                items {
+                    priceUsd
+                    item {
+                        name
+                        rarity
+                        quality
+                        isStattrak
+                        stock
+                        id
+                    }
+                    
+                }
+                winItem {
+                    priceUsd
+                    item {
+                        name
+                        rarity
+                        quality
+                        isStattrak
+                        stock
+                        id
+                    }    
+                }
+                user {
+                    steamId64
+                    steamPhoto
+                    nickname
+                    balanceUsd
+                    flags
+                    level
+                }
+            }
+            itemsCount
+            usersCount
+            itemsTotal
+        }
+    }
+`
+
+export const GET_INVENTORY = gql`
+    query getInventory ($skip: Int!, $take: Int!) {
+        getInventory (skip: $skip, take: $take) {
+            records {
+                id
+                steamId64
+                status
+                createdAt
+                priceUsd
+                item {
+                    id
+                    name
+                    rarity
+                    quality
+                    isStattrak
+                    stock
+                }
+            }
+            total
         }
     }
 `

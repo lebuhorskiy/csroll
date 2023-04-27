@@ -82,15 +82,25 @@ export default  {
 <style scoped lang="scss">
 .crash-history {
   height: 100vh;
+  @media (min-width: 1200px) {
+    min-height: 900px;
+  }
   display: flex;
   overflow: hidden;
   flex-direction: column;
   padding: 15px 12px;
+  @media (max-width: 1024px) {
+    height: auto;
+  }
   .bets {
     flex-grow: 1;
     overflow-y: auto;
     padding-right: 10px;
     margin-top: 32px;
+    @media (max-width: 1024px) {
+      height: 500px;
+      padding-right: 5px;
+    }
     &::-webkit-scrollbar {
       width: 8px;
       background: rgba(69, 84, 137, 0.05);

@@ -37,7 +37,7 @@
     <div class="shop-items">
       <UiBlockLoader v-if="isLoading" />
       <template v-else>
-        <BaseSkinReal :skin="skin" v-for="skin in items" :key="skin.id" />
+        <BaseSkinReal :selectable="true" :skin="skin" v-for="skin in items" :key="skin.id" />
       </template>
     </div>
 
@@ -150,9 +150,9 @@ export default {
   position: fixed;
   left: 590px;
   bottom: 24px;
-  background: rgba(69, 84, 137, 0.2);
+  background: #202844;
   box-shadow: 10px 10px 20px rgba(35, 44, 75, 0.8);
-  backdrop-filter: blur(7px);
+
   width: 480px;
   height: 75vh;
   display: flex;
@@ -161,6 +161,16 @@ export default {
   border-radius: 16px;
   z-index: 99;
   padding-bottom: 20px;
+  @media (max-width: 1500px) {
+    left: 440px;
+  }
+  @media (max-width: 1200px) {
+    z-index: 1000;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 100dvh;
+  }
   .shop-head {
     display: flex;
     align-items: center;
@@ -220,6 +230,7 @@ export default {
     display: flex;
     padding: 16px 20px;
     background: rgba(69, 84, 137, 0.5);
+    align-items: center;
     .indicator {
       span,strong {
         display: block;
@@ -229,11 +240,18 @@ export default {
         font-size: 14px;
         line-height: 21px;
         color: #576CB0;
+        @media (max-width: 600px) {
+          font-size: 12px;
+          line-height: 16px;
+        }
       }
       strong {
         font-weight: 700;
         font-size: 18px;
         line-height: 27px;
+        @media (max-width: 600px) {
+          font-size: 14px;
+        }
       }
     }
     .indicator + .indicator {
@@ -269,6 +287,23 @@ export default {
     padding-top: 0;
     padding-bottom: 2px;
     overflow-y: auto;
+    @media (max-width: 1200px) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+    @media (max-width: 900px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @media (max-width: 730px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 575px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    ::v-deep {
+      .image {
+        height: 70px;
+      }
+    }
     &::-webkit-scrollbar {
       background: rgba(69, 84, 137, 0.05);
       width: 8px;

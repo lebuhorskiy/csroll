@@ -71,6 +71,9 @@ export default {
 </script>
 <style scoped lang="scss">
 .bets-list {
+  @media (max-width: 1024px) {
+    height: 500px;
+  }
   .bet-instance + .bet-instance {
     margin-top: 12px;
   }

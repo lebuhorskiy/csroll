@@ -10,7 +10,7 @@ export default class UserModel extends BaseModel {
             balanceUsd: undefined,
             flags: undefined,
             level: undefined,
-            statistic: undefined,
+            getStatistic: undefined,
         }
     }
 

@@ -19,6 +19,7 @@
           </svg>
         </div>
         <span>Игра #54621</span>
+
         <div class="hash">
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_727_9339)">
@@ -30,8 +31,7 @@
               </clipPath>
             </defs>
           </svg>
-
-          <span @click="setShowCheckGameModal(true)">fa26w444fa8w88f44w8awf6a5g453gh9j9k7ng67d65567dtmf7n7fa26w444fa8w88f44w8awf6a5g453gh9j9k7ng67d65567dtmf7n7</span>
+          <span @click.prevent.stop="setShowCheckGameModal(true)">fa26w44...4fa8w88f44w8awf6a5g453gh9j9k7ng67d65567dtmf7n7fa26w444fa8w88f44w8awf6a5g453gh9j9k7ng67d65567dtmf7n7</span>
         </div>
         <router-link to="/jackpot/histories" class="history">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,6 +65,7 @@
 import {mapMutations} from "vuex";
 
 export default {
+  components: {},
   methods: {
     ...mapMutations({
       setShowCheckGameModal: 'config/setShowCheckGameModal'
@@ -78,6 +79,15 @@ export default {
   padding: 24px 32px;
   margin-right: 16px;
   border-radius: 16px;
+  @media (max-width: 1200px) {
+    margin-right: 16px;
+  }
+  @media (max-width: 992px) {
+    margin-right: 0px;
+  }
+  @media (max-width: 1600px) {
+    padding: 16px;
+  }
   .game-info_title {
     display: flex;
     overflow: hidden;
@@ -127,7 +137,6 @@ export default {
         line-height: 10px;
         padding-top: 2px;
         color: #455489;
-        text-overflow: ellipsis;
         overflow: hidden;
       }
       background: rgba(69, 84, 137, 0.1);
@@ -138,6 +147,9 @@ export default {
     display: flex;
     overflow: hidden;
     margin-top: 32px;
+    @media (max-width: 1290px) and (min-width: 1200px) {
+      flex-wrap: wrap;
+    }
     .bank {
       padding: 19px 24px;
       width: 200px;
@@ -147,11 +159,24 @@ export default {
       margin-right: 8px;
       display: flex;
       align-items: center;
+      @media (max-width: 1600px) {
+        flex: 1;
+        min-width: auto;
+        padding: 15px 20px;
+      }
+      @media (max-width: 1290px) and (min-width: 1200px) {
+        justify-content: center;
+      }
       span {
         font-weight: 700;
         font-size: 16px;
         line-height: 24px;
         margin-left: 16px;
+        @media (max-width: 1600px) {
+          white-space: nowrap;
+          font-size: 14px;
+          margin-left: 10px;
+        }
       }
     }
     .skins {
@@ -162,6 +187,16 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
+      @media (max-width: 1600px) {
+        flex: 1;
+        padding-left: 20px;
+        padding-right: 20px;
+        min-width: auto;
+      }
+      @media (max-width: 1290px) and (min-width: 1200px) {
+        height: 54px;
+        margin-top: 10px;
+      }
       .fill {
         position: absolute;
         left: 0;
@@ -180,6 +215,10 @@ export default {
         line-height: 24px;
         position: relative;
         z-index: 5;
+        white-space: nowrap;
+        @media (max-width: 1600px) {
+          font-size: 14px;
+        }
       }
     }
   }

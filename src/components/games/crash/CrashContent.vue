@@ -1,8 +1,8 @@
 <template>
   <div class="crash-content">
-    <HeaderTop />
+    <HeaderTop v-if="$root.width > 1200" />
     <CrashControlPanel />
-    <RoundsHistory />
+    <RoundsHistory v-if="$root.width > 1023" />
     <StatisticRound />
     <BetsList />
   </div>
@@ -21,6 +21,9 @@ import HeaderTop from "@/components/main/HeaderTop.vue";
   flex-direction: column;
   padding-top: 15px;
   overflow: hidden;
+  @media (max-width: 768px) {
+    padding-top: 0;
+  }
   .rounds-history {
     flex-shrink: 0;
     margin-bottom: 16px;
@@ -33,6 +36,9 @@ import HeaderTop from "@/components/main/HeaderTop.vue";
     padding-right: 12px;
     flex-grow: 1;
     overflow-y: auto;
+    @media (max-width: 575px) {
+      padding-right: 5px;
+    }
     &::-webkit-scrollbar {
       background: rgba(69, 84, 137, 0.05);
       width: 8px;

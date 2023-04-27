@@ -275,6 +275,9 @@ export default {
 <style scoped lang="scss">
 .support-ticket {
   height: 100vh;
+  @media (min-width: 1200px) {
+    min-height: 900px;
+  }
   display: flex;
   flex-direction: column;
   overflow: hidden;

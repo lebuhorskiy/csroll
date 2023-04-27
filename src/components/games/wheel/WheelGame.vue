@@ -58,12 +58,18 @@ export default {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  @media (max-width: 1024px) {
+    padding-right: 12px;
+  }
   .wheel-wrapper {
     .indicator {
       position: absolute;
       z-index: 9;
       left: 30px;
       top: 20px;
+      @media (max-width: 600px) {
+        left: 20px;
+      }
       strong,span {
         display: block;
         width: 100%;
@@ -104,6 +110,9 @@ export default {
     width: 100%;
     transition: 0.2s;
     cursor: pointer;
+    @media (max-width: 600px) {
+      margin-bottom: 0;
+    }
     &:hover {
       opacity: 0.8;
     }

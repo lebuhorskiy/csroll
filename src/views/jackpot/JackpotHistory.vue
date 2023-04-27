@@ -31,6 +31,9 @@ import BetInstance from "@/components/jackpot/BetInstance.vue";
   flex-direction: column;
   overflow: hidden;
   height: 100vh;
+  @media (min-width: 1200px) {
+    min-height: 900px;
+  }
   padding: 15px 12px;
   .bets {
     flex-grow: 1;

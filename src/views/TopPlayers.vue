@@ -1069,9 +1069,16 @@ import HeaderTop from "@/components/main/HeaderTop.vue";
   .content {
     display: flex;
     overflow: hidden;
+    @media (max-width: 1250px) {
+      flex-wrap: wrap;
+    }
     .left-content {
       flex-grow: 1;
+      overflow: hidden;
       margin-right: 25px;
+      @media (max-width: 1250px) {
+        margin-right: 0;
+      }
       .head {
         padding: 24px 0;
         display: flex;
@@ -1089,10 +1096,17 @@ import HeaderTop from "@/components/main/HeaderTop.vue";
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @media (max-width: 768px) {
+          flex-wrap: wrap;
+        }
         span {
           font-weight: 600;
           font-size: 16px;
           line-height: 24px;
+          @media (max-width: 768px) {
+            width: 100%;
+            margin-bottom: 5px;
+          }
         }
         .timer {
           display: flex;
@@ -1122,6 +1136,16 @@ import HeaderTop from "@/components/main/HeaderTop.vue";
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 28px;
+        @media (max-width: 992px) {
+          grid-gap: 16px;
+          padding-top: 16px;
+        }
+        @media (max-width: 650px) {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
         .player {
           overflow: hidden;
           background: rgba(69, 84, 137, 0.1);
@@ -1214,6 +1238,11 @@ import HeaderTop from "@/components/main/HeaderTop.vue";
               bottom: 0px;
               width: 120px;
               height: 90px;
+              @media (max-width: 992px) {
+                width: 80px;
+                height: auto;
+                right: -10px;
+              }
             }
             .quality {
               font-weight: 700;
@@ -1264,11 +1293,24 @@ import HeaderTop from "@/components/main/HeaderTop.vue";
               }
             }
           }
+          @media (max-width: 650px) {
+            padding: 16px;
+            width: calc(50% - 8px);
+            &:first-child {
+              width: 100%;
+            }
+          }
+          @media (max-width: 450px) {
+            width: 100%;
+          }
         }
       }
       .table {
         flex-grow: 1;
         margin-right: 12px;
+        @media (max-width: 1024px) {
+          margin-right: 0;
+        }
         .place {
           width: 15%;
         }
@@ -1311,6 +1353,45 @@ import HeaderTop from "@/components/main/HeaderTop.vue";
             font-size: 14px;
             line-height: 100%;
             color: #576CB0;
+          }
+          @media (max-width: 600px) {
+            padding-right: 16px;
+            padding-left: 0;
+            .coef {
+              margin-right: 0;
+              justify-content: flex-end;
+              display: flex;
+              text-align: right;
+              white-space: nowrap;
+              width: 40%;
+            }
+            .prize {
+              width: 30%;
+              text-align: left;
+              justify-content: flex-start;
+              padding-left: 0;
+            }
+            .bank {
+              width: 50%;
+            }
+            & > div {
+              font-size: 9px;
+            }
+            .referral {
+              width: 20%;
+            }
+            .coef {
+              text-align: left;
+              justify-content: flex-start;
+              width: 40%;
+            }
+            .prize {
+              width: 20%;
+
+            }
+            .bank {
+              width: 20%;
+            }
           }
         }
         .table-items {
@@ -1429,6 +1510,64 @@ import HeaderTop from "@/components/main/HeaderTop.vue";
               line-height: 100%;
               color: #EAC159
             }
+            @media (max-width: 600px) {
+              padding: 9px 10px;
+              .place {
+                width: 30px;
+                min-width: 30px;
+                font-size: 10px;
+              }
+              .referral {
+                .nickname {
+                  display: none;
+                }
+              }
+              .coef {
+                width: 40%;
+                margin-right: 0;
+                justify-content: flex-end;
+                display: flex;
+                font-size: 10px;
+                .coef-block {
+                  font-size: 10px;
+                  white-space: nowrap;
+                  padding: 5px 8px;
+                }
+              }
+              .prize {
+                width: 20%;
+                margin-top: 10px;
+                font-size: 10px;
+              }
+              .bank {
+                margin-top: 10px;
+                width: 50%;
+                font-size: 10px;
+              }
+              .referral {
+                width: 20%;
+              }
+              .coef {
+                justify-content: flex-start;
+                .coef-block {
+                  justify-content: flex-start;
+                }
+                width: 40%;
+              }
+              .prize {
+                width: 20%;
+                .prize-skin {
+                  width: 50px;
+                  .prize-skin_img {
+                    width: 50px;
+
+                  }
+                }
+              }
+              .bank {
+                width: 20%;
+              }
+            }
           }
           .table-item + .table-item {
             margin-top: 12px;
@@ -1439,6 +1578,14 @@ import HeaderTop from "@/components/main/HeaderTop.vue";
     .fortune-block {
       width: 504px;
       min-width: 504px;
+      @media (max-width: 1360px) {
+        width: 450px;
+        min-width: 450px;
+      }
+      @media (max-width: 1250px) {
+        width: 100%;
+        min-width: 100%;
+      }
       .fortune-head {
         display: flex;
         align-items: center;
@@ -1454,6 +1601,9 @@ import HeaderTop from "@/components/main/HeaderTop.vue";
         background: rgba(69, 84, 137, 0.1);
         border-radius: 16px;
         padding: 24px;
+        @media (max-width: 600px) {
+          padding: 16px;
+        }
         .player {
           justify-content: space-between;
           display: flex;
@@ -1461,6 +1611,9 @@ import HeaderTop from "@/components/main/HeaderTop.vue";
           border-radius: 16px;
           background: rgba(69, 84, 137, 0.1);
           padding: 10px 24px;
+          @media (max-width: 600px) {
+            padding: 8px 15px;
+          }
           .player-user {
             display: flex;
             align-items: center;
@@ -1502,6 +1655,9 @@ import HeaderTop from "@/components/main/HeaderTop.vue";
             font-weight: 600;
             font-size: 14px;
             line-height: 21px;
+            @media (max-width: 600px) {
+              display: none;
+            }
           }
           .player-prize {
             .prize-skin {
